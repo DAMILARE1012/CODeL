@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('/', 'pagescontroller@home')->name('home');
 Route::get('about', 'pagescontroller@about')->name('about');
 Route::get('objectives', 'pagescontroller@objectives')->name('objectives');
@@ -21,3 +20,12 @@ Route::get('programmes', 'pagescontroller@programmes')->name('programmes');
 Route::get('contact', 'pagescontroller@contact')->name('contact_us');
 Route::get('models', 'pagescontroller@models')->name('models');
 Route::get('faqs', 'pagescontroller@faqs')->name('faqs');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+//user Dashboard
+
+Route::get('/user', 'UserController@index')->name('user');
