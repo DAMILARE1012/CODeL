@@ -29,26 +29,12 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12">
-                <div class="row">
-                  <div class="col-xs-6">
-                    <div class="form-group mb-30">
-                      <input placeholder="Enter A Valid Email" id="reservation_email" name="reservation_email" class="form-control" required="" aria-required="true" type="email">
-                    </div>
-                  </div>
-                  <div class="col-xs-6">
-                    <div class="form-group mb-30">
-                      <input placeholder="Phone Number" id="reservation_email" name="reservation_email" class="form-control" required="" aria-required="true" type="text">
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               <div class="col-sm-12">
                 <div class="row">
                   <div class="col-xs-6">
                     <div class="form-group mb-30">
-                      <input type="date" name="dob" id="dob">
+                      <input type="date" name="dob" id="dob" class="form-control" required="">
                     </div>
                   </div>
 
@@ -65,6 +51,23 @@
                   </div>
                 </div>
               </div>
+              
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <div class="form-group mb-30">
+                      <input placeholder="Enter A Valid Email" id="reservation_email" name="reservation_email" class="form-control" required="" aria-required="true" type="email">
+                    </div>
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="form-group mb-30">
+                      <input placeholder="Phone Number" id="reservation_email" name="reservation_email" class="form-control" required="" aria-required="true" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              
 
               <div class="col-sm-12">
                 <div class="row">
@@ -86,31 +89,27 @@
                 <div class="row">
                   <div class="col-xs-6">
                     <div class="form-group mb-30">
-                      <select id="person_select" name="person_select" class="form-control" required="">
-                        <option value="">Choose Subject</option>
-                        <option value="1 Person">Software Engineering</option>
-                        <option value="2 Person">Computer Science engineering</option>
-                        <option value="3 Person">Accounting Technologies</option>
-                        <option value="Family Pack">BACHELOR`S DEGREE</option>
+                      <select id="country" name ="country" class="form-control" required="">
+                        
                       </select>
                     </div>
                   </div>
-
                   <div class="col-xs-6">
                     <div class="form-group mb-30">
-                      <select id="person_select" name="person_select" class="form-control" required="">
-                        <option value="">Country of Residence</option>
-                        <option value="1 Person">Software Engineering</option>
-                        <option value="2 Person">Computer Science engineering</option>
-                        <option value="3 Person">Accounting Technologies</option>
-                        <option value="Family Pack">BACHELOR`S DEGREE</option>
+                      <select name ="state" id ="state" class="form-control" required="">
+                        <option value="">Choose State</option>
                       </select>
                     </div>
                   </div>
                 </div>
-                
               </div>
 
+              <div class="col-sm-12">
+                <div class="form-group mb-30">
+                  <input id="file_upload" class="form-control" required="" aria-required="true" type="file">
+                </div>
+              </div>
+              
               <div class="col-sm-12">
                 <div class="form-group mb-0 mt-0">
                   <input name="form_botcheck" class="form-control" value="" type="hidden">
@@ -159,3 +158,25 @@
     <button title="Close (Esc)" type="button" class="mfp-close font-36">×</button>
   </div>
 </section>
+
+<script>
+    
+var uploadField = document.getElementById("file_upload");
+
+uploadField.onchange = function() {
+    if(this.files[0].size > 2097152){
+       alert("File is too big!");
+       this.value = "";
+    };
+};
+</script>
+
+<!-- Country and State Dropdown List -->
+
+<script language="javascript">
+	populateCountries("country", "state"); // first parameter is id of country drop-down and second parameter is id of state drop-down
+	populateCountries("country2");
+	populateCountries("country2");
+</script>
+
+

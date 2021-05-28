@@ -1,6 +1,6 @@
-  @extends('main')
+  @extends('layouts.front')
   @section('title')
-       - About Me
+       - Home
     @endsection
 
 <!-- Start main-content -->
@@ -345,7 +345,7 @@
                 <a class="icon icon-lg icon-top bg-theme-colored2 icon-rounded icon-border-effect effect-rounded" href="#">
                   <i class="fa fa-book text-white"></i>
                 </a>
-                <h3 class="icon-box-title mt-50 text-white">Online Course</h3>
+                <h3 class="icon-box-title mt-50 text-white">Online Programmes</h3>
                 <p class="text-white mb-20">Study for Bachelors Degree in Computer Science from the Prestigeous Federal University of Technology, Minna, Nigeria</p>
               </div>
             </div>
@@ -353,7 +353,7 @@
               <div class="icon-box text-center p-40 mb-sm-50 border-2px border-theme-colored2" data-bg-img="{{ asset("images/about/a1.jpg") }}">
                 <div>
                 <span class="typed-text-carousel font-20 text-white" data-speed="50" data-back_delay="600" data-loop="true">
-                <span class=""><b>Application Ongoing</b></span>
+                <span class=""><b>Ongoing Application</b></span>
                 <span class="">Admission for 2021/2022 Academic Session</span>
                 </span>
                 <h2 class="font-24 text-white">B.Tech Computer Science</h2>

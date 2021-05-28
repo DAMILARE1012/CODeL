@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.front')
 @section('title')
      - About CODeL
 @endsection

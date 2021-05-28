@@ -30,6 +30,12 @@ class pagescontroller extends Controller
     public function faqs(){
         return view('pages.front.faqs');
     }
+    public function login(){
+        return view('pages.front.login-form');
+    }
+    public function register(){
+        return view('pages.front.register-form');
+    }
 }
 
 

@@ -20,10 +20,10 @@
                 <div class="widget dark">
                     <h4 class="widget-title line-bottom-theme-colored-2">Useful Links</h4>
                     <ul class="angle-double-right list-border">
-                        <li><a href="{{ route("home") }}">Home Page</a></li>
-                        <li><a href="{{ route("about") }}">About Us</a></li>
-                        <li><a href="{{ route("contact_us") }}">Contact Us</a></li>
-                        <li><a href="{{ route("faqs") }}">FAQ</a></li>
+                        <li><a href="{{ route('home') }}">Home Page</a></li>
+                        <li><a href="{{ route('about') }}">About Us</a></li>
+                        <li><a href="{{ route('contact_us') }}">Contact Us</a></li>
+                        <li><a href="{{ route('faqs') }}">FAQ</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,12 +31,13 @@
                 <div class="widget dark">
                     <h4 class="widget-title line-bottom-theme-colored-2">Connect with us</h4>
                     <div class="latest-posts">
-                      <ul class="styled-icons icon-sm icon-bordered icon-circled clearfix mt-10">
-                        <li><a href="https://www.facebook.com/CodelFutminna-100507174873118"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://twitter.com/Codel_Futminna"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                     </ul>
+                        <ul class="styled-icons icon-sm icon-bordered icon-circled clearfix mt-10">
+                            <li><a href="https://www.facebook.com/CodelFutminna-100507174873118"><i
+                                        class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/Codel_Futminna"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -68,28 +69,35 @@
 <!-- Footer Scripts -->
 
 <!-- external javascripts -->
-<script src="{{ asset("js/jquery-2.2.4.min.js") }}"></script>
-<script src="{{ asset("js/jquery-ui.min.js") }}"></script>
-<script src="{{ asset("js/bootstrap.min.js") }}"></script>
+<script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <!-- JS | jquery plugin collection for this theme -->
-<script src="{{ asset("js/jquery-plugin-collection.js") }}"></script>
+<script src="{{ asset('js/jquery-plugin-collection.js') }}"></script>
 <!-- JS | Custom script for all pages -->
-<script src="{{ asset("js/custom.js") }}"></script>
-<script src="{{ asset("js/extra.js") }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('js/extra.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/countries.js') }}"></script>
+
 
 <!-- Revolution Slider 5.x SCRIPTS -->
-<script src="{{ asset("js/revolution-slider/js/jquery.themepunch.tools.min.js") }}"></script>
-<script src="{{ asset("js/revolution-slider/js/jquery.themepunch.revolution.min.js") }}"></script>
-<script src="{{ asset("js/extra-rev-slider-new.js") }}"></script>
+<script src="{{ asset('js/revolution-slider/js/jquery.themepunch.tools.min.js') }}"></script>
+<script src="{{ asset('js/revolution-slider/js/jquery.themepunch.revolution.min.js') }}"></script>
+<script src="{{ asset('js/extra-rev-slider-new.js') }}"></script>
 
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
       (Load Extensions only on Local File Systems ! 
        The following part can be removed on Server for On Demand Loading) -->
-<script type="text/javascript" src="{{ asset("js/revolution-slider/js/extensions/revolution.extension.actions.min.js") }}"></script>
-<script type="text/javascript" src="{{ asset("js/revolution-slider/js/extensions/revolution.extension.carousel.min.js") }}"></script>
-<script type="text/javascript" src="{{ asset("js/revolution-slider/js/extensions/revolution.extension.kenburn.min.js") }}"></script>
+<script type="text/javascript"
+    src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.actions.min.js') }}"></script>
+<script type="text/javascript"
+    src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.carousel.min.js') }}"></script>
+<script type="text/javascript"
+    src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset("js/revolution-slider/js/extensions/revolution.extension.migration.min.js") }}"></script>
+<script type="text/javascript"
+    src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.migration.min.js') }}"></script>
 
 
-<script type="text/javascript" src="{{ asset("js/revolution-slider/js/extensions/revolution.extension.video.min.js") }}"></script>
+<script type="text/javascript"
+    src="{{ asset('js/revolution-slider/js/extensions/revolution.extension.video.min.js') }}"></script>

@@ -12,11 +12,11 @@
                 <div class="col-md-4">
                     <div class="widget">
                         <ul class="list-inline  text-right flip sm-text-center">
-                            <li class="m-0 pl-10"> <a href="ajax-load/login-form.html"
-                                    class="text-white ajaxload-popup"><i class="fa fa-user-o mr-5 text-white"></i> Login
+                            <li class="m-0 pl-10"> <a href="{{ route('portal_login') }}"
+                                    class="text-white ajaxload-popup"><i class="fa fa-user-o mr-5 text-white"></i> Portal Login
                                     /</a> </li>
                             <li class="m-0 pl-0 pr-10">
-                                <a href="ajax-load/register-form.html" class="text-white ajaxload-popup"><i
+                                <a href="{{ route('portal_register') }}" class="text-white ajaxload-popup"><i
                                         class="fa fa-edit mr-5 text-white"></i>Apply Now</a>
                             </li>
                         </ul>
@@ -79,15 +79,14 @@
                         </li>
                         <li><a href="{{ route('contact_us') }}">Contact Us</a></li>
                         <li><a href="{{ route('faqs') }}">FAQs</a></li>
-                        <li><a href="#"><i class="fa fa-user-o mr-5 text-white"></i>Login</a></li>
-                        <li><a href="#"><i class="fa fa-edit mr-5 text-white"></i>Apply Now</a></li>
+                        <li><a href="{{ route('portal_register') }}" class="ajaxload-popup"><i class="fa fa-edit mr-5 text-white "></i>Apply Now</a></li>
                         
 
                     </ul>
                     <ul class="pull-right sm-pull-nonelist-inline nav-side-icon-list">
                         <li>
-                            <a href="#fullscreen-search-form" id="fullscreen-search-btn" style="color: #ff670f; font-size: 16px;"><i
-                                    class="search-icon text-theme-colored2 fa fa-user"></i><b>Login</b></a>
+                            <a href="{{ route('portal_login') }}" id="fullscreen-search-btn" style="color: #ff670f; font-size: 16px;" class="ajaxload-popup"><i
+                                    class="search-icon text-theme-colored2 fa fa-user"></i><b>Portal Login</b></a>
                             
                         </li>
                     </ul>
