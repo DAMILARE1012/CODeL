@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+@include('layouts.userheader')
 <main id="app-main" class="app-main">
   <div class="wrap">
   <section class="app-content">
@@ -12,6 +13,11 @@
             </header><!-- .widget-header -->
             <hr class="widget-separator">
             <div class="widget-body row">
+                @if(session('info'))
+                    <div class="alert alert-success">
+                        {{ session('info') }}
+                    </div>
+                    @endif
                 <p class="alert alert-info">Follow the guidelines below to complete your application.</p>
                 <ul class="list-group no-border">                   
                     <li class="list-group-item">1.<a class="text-primary">O'level Results Submitted</a></li>

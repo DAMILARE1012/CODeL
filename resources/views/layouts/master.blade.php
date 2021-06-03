@@ -64,30 +64,7 @@
             <span class="hamburger-box"><span class="hamburger-inner"></span></span>
           </a>
         </li>
-        <li>
-          <h5 class="page-title hidden-menubar-top hidden-float">Dashboard</h5>
-        </li>
-      </ul>
-
-      <!-- <ul class="nav navbar-toolbar navbar-toolbar-right navbar-right">
-        <li class="nav-item dropdown hidden-float">
-          <a href="javascript:void(0)" data-toggle="collapse" data-target="#navbar-search" aria-expanded="false">
-            <i class="zmdi zmdi-hc-lg zmdi-search"></i>
-          </a>
-        </li>
-
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="side-panel-toggle" data-toggle="class" data-target="#side-panel" data-class="open" role="button"><i class="zmdi zmdi-hc-lg zmdi-apps"></i></a>
-        </li>
-      </ul> -->
-    </div>
-  </div><!-- navbar-container -->
-</nav>
-<!--========== END app navbar -->
-
-<!-- APP ASIDE ==========-->
-@include('user_.header')
-<!-- APP MAIN ==========-->
+        
 @yield('content')
 <!--========== END app main -->
 
