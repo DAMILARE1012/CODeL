@@ -25,7 +25,13 @@
                     <li class="list-group-item">3. <a class="text-primary">Wait For Verification</a> </li>
                 </ul>
                 <div class="text-center">
-                    <a href="{{ asset('files/handbook.pdf') }}" class="btn btn-primary">Begin Application</a>
+                    @if($user->count == 0)
+                    <a href="" class="btn btn-primary">Begin Application</a>
+                    @elseif($user->count == 1)
+                    <a href="" class="btn btn-primary">Continue Application</a>
+                    @elseif($user->count == 2)
+                    <h4>Wait for Verification </h4>
+                    @endif
                 </div>
             </div>
             <!-- .widget-body -->
