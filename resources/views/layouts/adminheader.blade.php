@@ -80,21 +80,21 @@
           </a>
         </li>
 
+        <li>
+          <a href="{{route('admin.subject') }} ">
+            <i class="menu-icon fa fa-square"></i>
+            <span class="menu-text">Subject</span>
+          </a>
+        </li>
+
+       <!--  <li>
+          <a href="{{ route('admin.add.subject') }} ">
+            <i class="menu-icon fa fa-square"></i>
+            <span class="menu-text">Add Subject</span>
+          </a>
+        </li> -->
+
         <!-- <li>
-          <a href="http://localhost:8000/student/update-profile">
-            <i class="menu-icon fa fa-user"></i>
-            <span class="menu-text">Update Profile</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="http://localhost:8000/student/o-level-subjects">
-            <i class="menu-icon fa fa-file-photo-o"></i>
-            <span class="menu-text">Submit Result</span>
-          </a>
-        </li>
-
-        <li>
           <a href="http://localhost:8000/student/upload-my-files">
             <i class="menu-icon fa fa-print"></i>
             <span class="menu-text">Upload Scanned Files</span>

@@ -35,6 +35,10 @@ Auth::routes();
 
 Route::group(['as'=>'admin.','prefix' => 'admin','namespace'=>'Admin','middleware'=>['auth','admin']], function () {
 		Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+		Route::get('subject', 'DashboardController@subject')->name('subject');
+		Route::get('add-subject', 'DashboardController@addsubject')->name('add.subject');
+		Route::post('store-subject', 'DashboardController@storesubject')->name('store.subject');
+		Route::get('delete-subject/{id}', 'DashboardController@deletesubject')->name('delete.subject');
 });
 
 
@@ -42,6 +46,8 @@ Route::group(['as'=>'admin.','prefix' => 'admin','namespace'=>'Admin','middlewar
 
 Route::group(['as'=>'user.','prefix' => 'user','namespace'=>'User','middleware'=>['auth','user']], function () {
 		Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+		Route::get('o-level-subjects', 'RegistrationController@chooseSubjects')->name('choose.subjects');
+		Route::post('subjects', 'RegistrationController@processSelectedSubjects')->name('process.subjects');
 });
 
 
@@ -49,4 +55,5 @@ Route::group(['as'=>'user.','prefix' => 'user','namespace'=>'User','middleware'=
 
 Route::group(['as'=>'manager.','prefix' => 'manager','namespace'=>'Manager','middleware'=>['auth','manager']], function () {
 		Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+
 });
