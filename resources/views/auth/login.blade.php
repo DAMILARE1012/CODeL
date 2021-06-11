@@ -1,73 +1,48 @@
-@extends('layouts.app')
+@extends('layouts.log_in')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+<div class="simple-page-form animated flipInY" id="login-form">
+    <h4 class="form-title m-b-xl text-center">Sign In With Your CODeL Account</h4>
+    <form action="{{ route('login')}}" method="POST">
+        @csrf
+        <div class="form-group">
+            <input id="sign-in-email" type="email" class="form-control" name="email" placeholder="Email">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            @error('email')
+                <span class="alert-danger" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+        <div class="form-group">
+            <input id="sign-in-password" type="password" name="password" class="form-control" placeholder="Password">
+            @error('password')
+                <span class="alert-danger" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <div class="form-group m-b-xl">
+            <div class="checkbox checkbox-primary">
+                <input type="checkbox" id="keep_me_logged_in"/>
+                <label for="keep_me_logged_in">Keep me signed in</label>
             </div>
         </div>
-    </div>
-</div>
+        <input type="submit" class="btn btn-primary" value="SIGN IN">
+    </form>
+</div><!-- #login-form -->
+
+<div class="simple-page-footer">
+    <p><a href="{{ route('password.request') }}">FORGOT YOUR PASSWORD ?</a></p>
+    <p>
+        <small>Don't have an account ?</small>
+        <a href="{{ route('register') }}">CREATE AN ACCOUNT</a>
+    </p>
+</div><!-- .simple-page-footer -->
 @endsection

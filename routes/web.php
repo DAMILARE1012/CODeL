@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('/', 'pagescontroller@home')->name('home');
 Route::get('about', 'pagescontroller@about')->name('about');
 Route::get('objectives', 'pagescontroller@objectives')->name('objectives');
@@ -22,11 +21,32 @@ Route::get('contact', 'pagescontroller@contact')->name('contact_us');
 Route::get('models', 'pagescontroller@models')->name('models');
 Route::get('faqs', 'pagescontroller@faqs')->name('faqs');
 
-Route::get('portal_login', 'pagescontroller@login')->name('portal_login');
-Route::get('portal_register', 'pagescontroller@register')->name('portal_register');
-
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
+
+//user Dashboard
+
+// Route::get('/user', 'UserController@index')->name('user');
+
+
+//Admin Middleware
+
+Route::group(['as'=>'admin.','prefix' => 'admin','namespace'=>'Admin','middleware'=>['auth','admin']], function () {
+		Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+});
+
+
+//User Middleware
+
+Route::group(['as'=>'user.','prefix' => 'user','namespace'=>'User','middleware'=>['auth','user']], function () {
+		Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+});
+
+
+//Manager Middleware
+
+Route::group(['as'=>'manager.','prefix' => 'manager','namespace'=>'Manager','middleware'=>['auth','manager']], function () {
+		Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+});
