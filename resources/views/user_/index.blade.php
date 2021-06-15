@@ -26,7 +26,7 @@
                 </ul>
                 <div class="text-center">
                     @if($user->count == 0)
-                    <a href="" class="btn btn-primary">Begin Application</a>
+                    <a href="" class="btn btn-primary float-left">Begin Application</a>
                     @elseif($user->count == 1)
                     <a href="" class="btn btn-primary">Continue Application</a>
                     @elseif($user->count == 2)

@@ -25,19 +25,39 @@
                                         <div class="col-xs-12 col-sm-4">
                                             <div class="form-group mb-10">
                                                 <input placeholder="First Name" id="reservation_name" name="fname"
-                                                    required="" class="form-control" aria-required="true" type="text">
+                                                    class="form-control" aria-required="true" type="text" required
+                                                    autofocus>
+
+                                                @if ($errors->has('fname'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('fname') }}</strong>
+                                                    </span>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-4">
                                             <div class="form-group mb-10">
                                                 <input placeholder="Middle Name" id="reservation_name" name="mname"
-                                                    required="" class="form-control" aria-required="true" type="text">
+                                                    class="form-control" aria-required="true" type="text" required
+                                                    autofocus>
+
+                                                @if ($errors->has('fname'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('fname') }}</strong>
+                                                    </span>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-4">
                                             <div class="form-group mb-10">
-                                                <input placeholder="Last Name" id="lastName" name="lname" required=""
-                                                    class="form-control" aria-required="true" type="text">
+                                                <input placeholder="Last Name" id="lastName" name="lname"
+                                                    class="form-control" aria-required="true" type="text" required
+                                                    autofocus>
+                                                @if ($errors->has('lname'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('lname') }}</strong>
+                                                    </span>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -49,6 +69,13 @@
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="form-group mb-30">
                                             <input type="date" name="dob" id="dob" class="form-control" required="">
+
+                                            @if ($errors->has('dob'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('dob') }}</strong>
+                                                </span>
+                                            @endif
+
                                         </div>
                                     </div>
 
@@ -72,12 +99,25 @@
                                         <div class="form-group mb-30">
                                             <input placeholder="Enter A Valid Email" id="reservation_email" name="email"
                                                 class="form-control" required="" aria-required="true" type="email">
+
+                                            @if ($errors->has('email'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
+
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="form-group mb-30">
                                             <input placeholder="Phone Number" id="reservation_email" name="phone"
                                                 class="form-control" required="" aria-required="true" type="text">
+
+                                            @if ($errors->has('phone'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('phone') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +131,9 @@
                                                 required="" class="form-control" aria-required="true" type="password"
                                                 required>
                                             @if ($errors->has('password'))
-                                                <strong>{{ $errors->first('password') }}</strong>
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
                                             @endif
                                         </div>
                                     </div>
@@ -100,7 +142,7 @@
                                         <div class="form-group mb-30">
                                             <input placeholder="Confirm Password" id="reservation_name"
                                                 name="password_confirmation" required="" class="form-control"
-                                                aria-required="true" type="password" required>
+                                                aria-required="true" type="password" required autofocus>
                                         </div>
                                     </div>
                                 </div>
@@ -111,7 +153,6 @@
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="form-group mb-30">
                                             <select id="country" name="country" class="form-control" required="">
-
                                             </select>
                                         </div>
                                     </div>
@@ -151,7 +192,7 @@
 
                             <div class="col-sm-12">
                                 <div class="form-group mt-15 text-center">
-                                    <p>Already have an account? <a href="#" class="text-theme-colored2 text-underline">Sign
+                                    <p>Already have an account? <a href="{{ route("login") }}" class="text-theme-colored2 text-underline">Sign
                                             In Here</a> </p>
                                 </div>
                             </div>
