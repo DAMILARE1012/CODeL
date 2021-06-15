@@ -136,15 +136,12 @@
 								<div class="alert alert-danger">{{ session('error') }}</div>
 							@endif
 							<form action="{{ route('user.submit.results') }}" method="POST" class="form-inline">
-							
 								@csrf
-
-								
-
 								<h5>First Sitting Details</h5>
 								<div class="form-group @error('exam_number') has-error @enderror">
 									<label for="exampleInputName2">Examination</label>
-									<select name="examination" class="form-control">
+									<select name="examination" class="form-control" required>
+										<option value="" disabled selected hidden>Please select</option>
 										<option value="waec">WAEC</option>
 										<option value="neco">NECO</option>
 										<option value="nabteb">NABTEB</option>
@@ -153,12 +150,12 @@
 
 								<div class="form-group @error('exam_number') has-error @enderror">
 									<label for="exampleInputName2">Examination Number</label>
-									<input type="text" class="form-control" id="exampleInputName2" placeholder="Examination no here..." name="exam_number">
+									<input type="text" class="form-control" id="exampleInputName2" placeholder="Examination no here..." name="exam_number" required>
 								</div>
-
-								<div class="form-group @error('exam_year') has-error @enderror">
+								<br>
+								<div class="form-group @error('exam_year') has-error @enderror" style="padding-top: 12px;">
 									<label for="exampleInputName2">Examination Year</label>
-									<input type="text" class="form-control" id="exampleInputName2" placeholder="NOV2018" name="exam_year">
+									<input type="text" class="form-control" id="exampleInputName2" placeholder="NOV2018" name="exam_year" required>
 								</div>
 								<hr>
 								@if(Session('selectedSittings') == 2)
@@ -168,6 +165,7 @@
 								<div class="form-group @error('exam_number') has-error @enderror">
 									<label for="exampleInputName2">Examination</label>
 									<select name="examination2" class="form-control">
+										<option value="" disabled selected hidden>Please select</option>
 										<option value="waec">WAEC</option>
 										<option value="neco">NECO</option>
 										<option value="nabteb">NABTEB</option>
@@ -179,7 +177,7 @@
 									<input type="text" class="form-control" id="exampleInputName2" placeholder="Examination no here..." name="exam_number2">
 								</div>
 
-								<div class="form-group @error('exam_year') has-error @enderror">
+								<div class="form-group @error('exam_year') has-error @enderror" style="padding-top: 12px;">
 									<label for="exampleInputName2">Examination Year</label>
 									<input type="text" class="form-control" id="exampleInputName2" placeholder="NOV2018" name="exam_year2">
 								</div>
@@ -204,7 +202,8 @@
 												</td>
 												<td>
 														
-													<select class="form-control" name="grades[]">
+													<select class="form-control" name="grades[]" required>
+														<option value="" disabled selected hidden>Please select</option>
 														<option value="A1">A1</option>
 														<option value="B2">B2</option>
 														<option value="B3">B3</option>
@@ -221,6 +220,8 @@
 										@endforeach
 									</tbody>
 								</table>
+
+								<input type="hidden" name="sittings" value="{{ Session('selectedSittings') }} ">
 								
 								
 								<button type="submit" class="btn btn-primary btn-md" >Submit Results</button>

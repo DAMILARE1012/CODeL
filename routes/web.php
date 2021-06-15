@@ -48,6 +48,16 @@ Route::group(['as'=>'user.','prefix' => 'user','namespace'=>'User','middleware'=
 		Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 		Route::get('o-level-subjects', 'RegistrationController@chooseSubjects')->name('choose.subjects');
 		Route::post('subjects', 'RegistrationController@processSelectedSubjects')->name('process.subjects');
+		Route::post('submit-result', 'RegistrationController@submitResults')->name('submit.results');
+		Route::get('upload-my-files', 'RegistrationController@uploadFiles')->name('upload.files');
+		Route::post('upload-my-files', 'RegistrationController@submitFiles')->name('submit.files');
+		
+		//Acceptance fee 
+
+		Route::get('acceptance-fee', 'AcceptanceFeeController@createOrder')->name('acceptance.order');
+		Route::get('acceptance-fee-form/{order}', 'AcceptanceFeeController@remitaRequestView')->name('remita.request');
+		Route::get('callback', 'AcceptanceFeeController@callback')->name('acceptance.callback');
+		Route::get('acceptance-fee-history', 'AcceptanceFeeController@paymentHistory')->name('acceptance.history');
 });
 
 

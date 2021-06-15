@@ -22,6 +22,7 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
 	<script src="{{ asset('admin_assets/libs/bower/breakpoints.js/dist/breakpoints.min.js') }}"></script>
+	<script src="{{ asset('admin_assets/image_picture.js') }}"></script>
 	<script>
 		Breakpoints();
 	</script>
@@ -50,8 +51,8 @@
       <span class="zmdi zmdi-hc-lg zmdi-search"></span>
     </button>
 
-    <a href="http://localhost:8000/home" class="navbar-brand">
-      <span class="brand-icon"><img src="http://localhost:8000/logo.png"></span>
+    <a href="{{ route('home') }} " class="navbar-brand">
+      <span class="brand-icon"><img src="{{asset('logo.png') }}"></span>
       <!-- <span class="brand-name">Centre for Open Distance &amp; e-Learning</span> -->
     </a>
   </div><!-- .navbar-header -->
@@ -79,7 +80,7 @@
 					<div class="media">
 						<div class="media-left">
 							<div class="avatar avatar-xs avatar-circle">
-								<img src="http://localhost:8000/dashboard/assets/images/221.jpg" alt="">
+								<img src="{{asset('dashboard/assets/images/221.jpg') }}" alt="">
 								<i class="status status-online"></i>
 							</div>
 						</div>
@@ -94,7 +95,7 @@
 					<div class="media">
 						<div class="media-left">
 							<div class="avatar avatar-xs avatar-circle">
-								<img src="http://localhost:8000/dashboard/assets/images/205.jpg" alt="">
+								<img src="{{asset('dashboard/assets/images/205.jpg')}}" alt="">
 								<i class="status status-online"></i>
 							</div>
 						</div>
@@ -109,7 +110,7 @@
 					<div class="media">
 						<div class="media-left">
 							<div class="avatar avatar-xs avatar-circle">
-								<img src="http://localhost:8000/dashboard/assets/images/206.jpg" alt="">
+								<img src="{{asset('dashboard/assets/images/206.jpg') }}" alt="">
 								<i class="status status-online"></i>
 							</div>
 						</div>
@@ -124,7 +125,7 @@
 					<div class="media">
 						<div class="media-left">
 							<div class="avatar avatar-xs avatar-circle">
-								<img src="http://localhost:8000/dashboard/assets/images/207.jpg" alt="">
+								<img src="{{asset('dashboard/assets/images/207.jpg') }}" alt="">
 								<i class="status status-away"></i>
 							</div>
 						</div>
@@ -139,7 +140,7 @@
 					<div class="media">
 						<div class="media-left">
 							<div class="avatar avatar-xs avatar-circle">
-								<img src="http://localhost:8000/dashboard/assets/images/208.jpg" alt="">
+								<img src="{{asset('dashboard/assets/images/208.jpg') }}" alt="">
 								<i class="status status-away"></i>
 							</div>
 						</div>
@@ -154,7 +155,7 @@
 					<div class="media">
 						<div class="media-left">
 							<div class="avatar avatar-xs avatar-circle">
-								<img src="http://localhost:8000/dashboard/assets/images/209.jpg" alt="">
+								<img src="{{asset('dashboard/assets/images/209.jpg') }}" alt="">
 								<i class="status status-away"></i>
 							</div>
 						</div>
@@ -169,7 +170,7 @@
 					<div class="media">
 						<div class="media-left">
 							<div class="avatar avatar-xs avatar-circle">
-								<img src="http://localhost:8000/dashboard/assets/images/219.jpg" alt="">
+								<img src="{{asset('dashboard/assets/images/219.jpg') }}" alt="">
 								<i class="status status-away"></i>
 							</div>
 						</div>
@@ -258,6 +259,7 @@
 		</div><!-- .scrollable-container -->
 	</div><!-- /#side-panel -->
 
+	
 	<script src="{{ asset('admin_assets/libs/bower/jquery/dist/jquery.js') }}"></script>
 	<script src="{{ asset('admin_assets/libs/bower/jquery-ui/jquery-ui.min.js') }}"></script>
 	<script src="{{ asset('admin_assets/libs/bower/jQuery-Storage-API/jquery.storageapi.min.js') }}"></script>
@@ -265,9 +267,6 @@
 	<script src="{{ asset('admin_assets/libs/bower/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
 	<script src="{{ asset('admin_assets/libs/bower/perfect-scrollbar/js/perfect-scrollbar.jquery.js') }}"></script>
 	<script src="{{ asset('admin_assets/libs/bower/PACE/pace.min.js') }}"></script>
-	
-		
-
 	<script src="{{ asset('admin_assets/dashboard/assets/js/library.js') }}"></script>
 	<script src="{{ asset('admin_assets/dashboard/assets/js/plugins.js') }}"></script>
 	<script src="{{ asset('admin_assets/dashboard/assets/js/app.js') }}"></script>

@@ -20,6 +20,7 @@ class CreateOlevelsTable extends Migration
             $table->string('exam2')->nullable();
             $table->text('subjects');
             $table->text('grades');
+            $table->string('sittings');
             $table->string('exam_number');
             $table->string('exam_year');
             $table->string('exam_number2')->nullable();

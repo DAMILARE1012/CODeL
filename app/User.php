@@ -52,4 +52,14 @@ class User extends Authenticatable
         return $this->hasOne('App\Olevel');
     }
 
+    public function credential()
+    {
+        return $this->hasOne('App\Credential');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
+
 }

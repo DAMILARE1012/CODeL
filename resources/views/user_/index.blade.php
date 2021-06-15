@@ -18,17 +18,29 @@
                         {{ session('info') }}
                     </div>
                     @endif
+
+                        
                 <p class="alert alert-info">Follow the guidelines below to complete your application.</p>
-                <ul class="list-group no-border">                   
-                    <li class="list-group-item">1.<a class="text-primary">O'level Results Submitted</a></li>
-                    <li class="list-group-item">2.<a class="text-primary">Upload Scanned Files</a></li>
-                    <li class="list-group-item">3. <a class="text-primary">Wait For Verification</a> </li>
+                <ul class="list-group no-border"> 
+                    <li class="list-group-item">1. <a class="text-primary">Pay Registration Fee</a> </li>
+                    @if($olevel)     
+                   <li class="list-group-item"><a class="text-success">O'level Results Submitted</a> </li>
+                    @else             
+                    <li class="list-group-item">2.<a class="text-primary">O'level Results</a></li>
+                    @endif 
+                    @if($credential)
+                    <li class="list-group-item"><a class="text-success">Credencials Submitted</a> </li>
+                    @else
+                    <li class="list-group-item">3.<a class="text-primary">Upload Scanned Files</a></li>
+                    @endif
+                    
+                    <li class="list-group-item">4. <a class="text-primary">Wait For Verification</a></li>
                 </ul>
                 <div class="text-center">
                     @if($user->count == 0)
-                    <a href="" class="btn btn-primary float-left">Begin Application</a>
+                    <a href="{{ route('user.choose.subjects') }} " class="btn btn-primary">Begin Application</a>
                     @elseif($user->count == 1)
-                    <a href="" class="btn btn-primary">Continue Application</a>
+                    <a href="{{ route('user.upload.files') }} " class="btn btn-primary">Continue Application</a>
                     @elseif($user->count == 2)
                     <h4>Wait for Verification </h4>
                     @endif
