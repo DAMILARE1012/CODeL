@@ -28,7 +28,28 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo;
+    public function redirectTo()
+    {
+        
+        switch(Auth::user()->role_id){
+            case 1:
+                $this->redirectTo = route('admin.dashboard');
+                return $this->redirectTo;
+                break;
+            case 2:
+                $this->redirectTo = route('user.dashboard');
+                return $this->redirectTo;
+                break;
+            case 3:
+            $this->redirectTo = route('manager.dashboard');
+            return $this->redirectTo;
+                break;
+            default:
+                $this->redirectTo = '/login';
+                return $this->redirectTo;
+            }
+    }
 
     /**
      * Create a new controller instance.
@@ -49,10 +70,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'role_id' => ['required'],
+            'fname' => ['required', 'string', 'max:255'],
+            'mname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
+            'dob' => ['required'],
+            'country' => ['required'],
+            'state' => ['required'],
+            'program' => ['required'],
+            'phone' => ['required', 'string', 'max:255'],
+            'count' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
     }
 
     /**
@@ -63,10 +94,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
-            'name' => $data['name'],
+            'role_id' => $data['role_id'],
+            'fname' => $data['fname'],
+            'mname' => $data['mname'],
+            'lname' => $data['lname'],
+            'phone' => $data['phone'],
+            'count' => $data['count'],
+            'dob' => $data['dob'],
+            'program' => $data['program'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'country' => $data['country'],
+            'state' => $data['state'],
         ]);
     }
 }
+

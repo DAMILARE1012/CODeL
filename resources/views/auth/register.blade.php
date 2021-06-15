@@ -6,37 +6,38 @@
 
     <section class="">
         <div class="container position-relative p-0 mt-90" style="max-width: 700px;">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
             <h3 class="bg-theme-colored2 p-15 pt-10 mt-0 mb-0 text-white">Register Form</h3>
             <div class="section-content bg-white p-30">
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Register Form Starts -->
                         <form id="reservation_form_popup" name="reservation_form"
-                            class="reservation-form mb-0 bg-silver-light p-30" method="post" action="#"
-                            novalidate="novalidate">
+                            class="reservation-form mb-0 bg-silver-light p-30" method="post"
+                            action="{{ route('register') }}" novalidate="novalidate">
+                            {{ csrf_field() }}
                             <h3 class="text-center mt-0 mb-30">Register here </h3>
                             <div class="row">
-
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-4">
                                             <div class="form-group mb-10">
-                                                <input placeholder="First Name" id="reservation_name"
-                                                    name="reservation_name" required="" class="form-control"
-                                                    aria-required="true" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-4">
-                                            <div class="form-group mb-10">
-                                                <input placeholder="Middle Name" id="reservation_name"
-                                                    name="reservation_name" required="" class="form-control"
-                                                    aria-required="true" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-4">
-                                            <div class="form-group mb-10">
-                                                <input placeholder="Last Name" id="reservation_name" name="reservation_name"
+                                                <input placeholder="First Name" id="reservation_name" name="fname"
                                                     required="" class="form-control" aria-required="true" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4">
+                                            <div class="form-group mb-10">
+                                                <input placeholder="Middle Name" id="reservation_name" name="mname"
+                                                    required="" class="form-control" aria-required="true" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4">
+                                            <div class="form-group mb-10">
+                                                <input placeholder="Last Name" id="lastName" name="lname" required=""
+                                                    class="form-control" aria-required="true" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -53,8 +54,7 @@
 
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="form-group mb-30">
-                                            <select id="person_select" name="person_select" class="form-control"
-                                                required="">
+                                            <select id="person_select" name="program" class="form-control" required="">
                                                 <option value="">Choose Programme</option>
                                                 <option value="1 Person">Software Engineering</option>
                                                 <option value="2 Person">Computer Science engineering</option>
@@ -70,37 +70,36 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="form-group mb-30">
-                                            <input placeholder="Enter A Valid Email" id="reservation_email"
-                                                name="reservation_email" class="form-control" required=""
-                                                aria-required="true" type="email">
+                                            <input placeholder="Enter A Valid Email" id="reservation_email" name="email"
+                                                class="form-control" required="" aria-required="true" type="email">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="form-group mb-30">
-                                            <input placeholder="Phone Number" id="reservation_email"
-                                                name="reservation_email" class="form-control" required=""
-                                                aria-required="true" type="text">
+                                            <input placeholder="Phone Number" id="reservation_email" name="phone"
+                                                class="form-control" required="" aria-required="true" type="text">
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-
-
                             <div class="col-sm-12">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="form-group mb-30">
-                                            <input placeholder="Enter Password" id="reservation_name"
-                                                name="reservation_password" required="" class="form-control"
-                                                aria-required="true" type="password" required>
+                                            <input placeholder="Enter Password" id="reservation_name" name="password"
+                                                required="" class="form-control" aria-required="true" type="password"
+                                                required>
+                                            @if ($errors->has('password'))
+                                                <strong>{{ $errors->first('password') }}</strong>
+                                            @endif
                                         </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="form-group mb-30">
                                             <input placeholder="Confirm Password" id="reservation_name"
-                                                name="reservation_password" required="" class="form-control"
+                                                name="password_confirmation" required="" class="form-control"
                                                 aria-required="true" type="password" required>
                                         </div>
                                     </div>
@@ -126,10 +125,16 @@
                                 </div>
                             </div>
 
+
                             <div class="col-sm-12">
                                 <div class="form-group mb-30">
-                                    <input id="file_upload" class="form-control" required="" aria-required="true"
-                                        type="file">
+                                    <input type="hidden" id="count" name="count" value="0">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="form-group mb-30">
+                                    <input type="hidden" id="role_id" name="role_id" value="2">
                                 </div>
                             </div>
 

@@ -36,9 +36,6 @@ class pagescontroller extends Controller
     public function register(){
         return view('pages.front.register-form');
     }
-    public function register_2(){
-        return view('auth.register');
-    }
 }
 
 

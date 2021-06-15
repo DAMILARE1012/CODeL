@@ -21,8 +21,6 @@ Route::get('contact', 'pagescontroller@contact')->name('contact_us');
 Route::get('models', 'pagescontroller@models')->name('models');
 Route::get('faqs', 'pagescontroller@faqs')->name('faqs');
 
-Route::get('reg_2', 'pagescontroller@register_2');
-
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

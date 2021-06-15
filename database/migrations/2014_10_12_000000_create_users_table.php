@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('lname');
             $table->string('dob');
             $table->string('country');
+            $table->string('state');
             $table->string('program');
             $table->string('phone');
             $table->string('count');
