@@ -39,6 +39,7 @@ Route::group(['as'=>'admin.','prefix' => 'admin','namespace'=>'Admin','middlewar
 		Route::get('add-subject', 'DashboardController@addsubject')->name('add.subject');
 		Route::post('store-subject', 'DashboardController@storesubject')->name('store.subject');
 		Route::get('delete-subject/{id}', 'DashboardController@deletesubject')->name('delete.subject');
+		Route::get('registration', 'DashboardController@registration_fees')->name('registration');
 });
 
 

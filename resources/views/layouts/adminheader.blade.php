@@ -87,6 +87,13 @@
           </a>
         </li>
 
+        <li>
+          <a href="{{route('admin.registration') }} ">
+            <i class="menu-icon glyphicon glyphicon-list-alt"></i>
+            <span class="menu-text">Registration Fees</span>
+          </a>
+        </li>
+
        <!--  <li>
           <a href="{{ route('admin.add.subject') }} ">
             <i class="menu-icon fa fa-square"></i>
