@@ -7,9 +7,9 @@
     <section class="">
         <div class="container position-relative p-0 mt-90" style="max-width: 700px;">
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li class="btn btn-danger">{{ $error }}</li>
             @endforeach
-            <h3 class="bg-theme-colored2 p-15 pt-10 mt-0 mb-0 text-white">Register Form</h3>
+            <h3 class="bg-theme-colored2 p-15 pt-10 mt-4 mb-0 text-white">Register Form</h3>
             <div class="section-content bg-white p-30">
                 <div class="row">
                     <div class="col-md-12">
@@ -83,10 +83,8 @@
                                         <div class="form-group mb-30">
                                             <select id="person_select" name="program" class="form-control" required="">
                                                 <option value="">Choose Programme</option>
-                                                <option value="1 Person">Software Engineering</option>
-                                                <option value="2 Person">Computer Science engineering</option>
-                                                <option value="3 Person">Accounting Technologies</option>
-                                                <option value="Family Pack">BACHELOR`S DEGREE</option>
+                                                <option value="Computer Science">Computer Science</option>
+                                                <option value="Software Engineering">Software Engineering</option>
                                             </select>
                                         </div>
                                     </div>

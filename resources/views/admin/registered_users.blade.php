@@ -17,27 +17,25 @@
                         <table class="table table-striped table-bordered">
                             <thead class="thead-dark">
                                 <tr>
-                                  <th scope="col">Categories</th>
-                                  <th scope="col">Amount</th>
-                                  <th scope="col">Action</th>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Program</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                  
-                                  <tr>
-                                    <td scope="row">Registration Fees</td>
-                                    <td>25,000.00</td>
-                                    <td><a href="#">Edit</a></td>
-                                  </tr>
-
-                                  <tr>
-                                    <td scope="row">Registration Fees</td>
-                                    <td>25,000.00</td>
-                                    <td><a href="#">Edit</a></td>
-                                  </tr>
+                                  @foreach ($users->all() as $user)
+                                    <tr>
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->fname }} {{ $user->mname }} {{ $user->lname }}</td>
+                                        <td>{{ $user->program }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->phone }}</td>
+                                    </tr>
+                                  @endforeach
+                                
             
-                                
-                                
                               </tbody>
 
                         </table>
