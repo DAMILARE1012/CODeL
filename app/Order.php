@@ -10,4 +10,6 @@ class Order extends Model
     {
     	return $this->belongsTo('App\User');
     }
+
+    protected $fillable = ['payment_list_id','amount', 'reference', 'status', 'user_id'];
 }

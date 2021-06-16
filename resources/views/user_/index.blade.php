@@ -22,20 +22,44 @@
                         
                 <p class="alert alert-info">Follow the guidelines below to complete your application.</p>
                 <ul class="list-group no-border"> 
-                    <li class="list-group-item">1. <a class="text-primary">Pay Registration Fee</a> </li>
-                    @if($olevel)     
-                   <li class="list-group-item"><a class="text-success">O'level Results Submitted</a> </li>
-                    @else             
-                    <li class="list-group-item">2.<a class="text-primary">O'level Results</a></li>
-                    @endif 
-                    @if($credential)
-                    <li class="list-group-item"><a class="text-success">Credencials Submitted</a> </li>
-                    @else
-                    <li class="list-group-item">3.<a class="text-primary">Upload Scanned Files</a></li>
-                    @endif
+
+                        <li class="list-group-item">1. 
+                            @if($acceptance_fee)
+                            @if($acceptance_fee->status == 1)     
+                                <a class="text-success">Registration Fee</a>
+                            @else             
+                                    Pay Registration Fee
+                            @endif 
+
+                            @else
+                                    Pay Registration Fee
+                            @endif
+                            @if($acceptance_fee)
+                            @if($registeration)<span><i class="text-success fa fa-check-circle"></i></span>@endif 
+                            @endif
+                        </li>
+
+                        <li class="list-group-item">2. 
+                            @if($olevel)     
+                                <a class="text-success">O'level Results Submitted</a>
+                            @else             
+                                    O'level Results
+                            @endif 
+                            @if($olevel)<span><i class="text-success fa fa-check-circle"></i></span>@endif 
+                        </li>
+
+                         <li class="list-group-item">3. 
+                            @if($credential)     
+                                <a class="text-success">Credencials Submitted</a>
+                            @else             
+                                    Upload Scanned Files
+                            @endif 
+                            @if($credential)<span><i class="text-success fa fa-check-circle"></i></span>@endif 
+                        </li>
                     
-                    <li class="list-group-item">4. <a class="text-primary">Wait For Verification</a></li>
+                        <li class="list-group-item">4. <a class="text-primary">Wait For Verification</a></li>
                 </ul>
+
                 <div class="text-center">
                     @if($user->count == 0)
                     <a href="{{ route('user.choose.subjects') }} " class="btn btn-primary">Begin Application</a>
