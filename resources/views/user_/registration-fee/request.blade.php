@@ -31,7 +31,7 @@
                                                     </header><!-- .widget-header -->
                                                     <hr class="widget-separator">
                                                     @php 
-                                                        $concatString = config('global.MERCHANTID') . config('global.SERVICETYPEID') . $order->reference . $order->amount . config('global.PATH') . config('global.APIKEY');
+                                                        $concatString = config('global.MERCHANTID') . config('global.SERVICETYPEID') . $regOrder->reference . $regOrder->amount . config('global.PATH') . config('global.APIKEY');
 
                                                         $hash = hash('sha512', $concatString);
                                                         
@@ -39,16 +39,16 @@
 
                                                     
                                                     <div class="widget-body text-center">
-                                                        @if(!$acceptanceFeeSuccessful)
+                                                        @if(!$registrationFeeSuccessful)
                                                         <form action="{{ config('global.GATEWAYURL') }}" name="remita_form" method="POST" class="form-horizontal">
 
                                                             <input type="hidden" value="{{ config('global.MERCHANTID')}}" name="merchantId">
 
                                                             <input type="hidden" value="{{ config('global.SERVICETYPEID')}}" name="serviceTypeId">
-                                                            <input type="hidden" value="{{ $order->amount }}" name="amt">
+                                                            <input type="hidden" value="{{ $regOrder->amount }}" name="amt">
                                                             <input type="hidden" value="{{ config('global.PATH') }}" name="responseurl">
                                                             <input type="hidden" value="{{ $hash }}" name="hash">
-                                                            <h1 class="text-success">Acceptance Fee: &#8358;{{ number_format($order->amount,2) }}</h1>
+                                                            <h1 class="text-success">Acceptance Fee: &#8358;{{ number_format($regOrder->amount,2) }}</h1>
                                                             <p class="text-info">Note:<br>1. Remita charges may apply.<br> 2. You can only pay using your Master Card.</p>
                                                             <div class="form-group">
                                                                 <label for="select2-demo-2" class="col-sm-4 control-label">PAYMENT METHOD</label>
@@ -60,10 +60,10 @@
                                                                     </select>
                                                                 </div><!-- END column -->
                                                             </div><!-- .form-group -->
-                                                            <input type="hidden" value="{{ $order->user->fname }} {{ $order->user->mname }} {{ $order->user->lname }}" name="payerName">
-                                                            <input type="hidden" value="{{ $order->user->email }}" name="payerEmail">
-                                                            <input type="hidden" value="{{ $order->user->phone }}" name="payerPhone">
-                                                            <input type="hidden" value="{{ $order->reference }}" name="orderId">
+                                                            <input type="hidden" value="{{ $regOrder->user->fname }} {{ $regOrder->user->mname }} {{ $regOrder->user->lname }}" name="payerName">
+                                                            <input type="hidden" value="{{ $regOrder->user->email }}" name="payerEmail">
+                                                            <input type="hidden" value="{{ $regOrder->user->phone }}" name="payerPhone">
+                                                            <input type="hidden" value="{{ $regOrder->reference }}" name="regOrderId">
                                                             <input type="submit" name="submit" class="btn btn-success" value="Pay with Remita">
                                                             <img src="{{ asset('remita.png') }}" width="150" height="150">
                                                         </form>
@@ -83,7 +83,7 @@
                             </div>
 
 
-                            @if($order)
+                            @if($regOrder)
                                 
                                 <div class="row">
                                   
@@ -113,22 +113,22 @@
                                                                     @php
                                                                         $count = 1;
                                                                     @endphp
-                                                                    @foreach($orders as $order)
+                                                                    @foreach($regOrders as $regOrder)
                                                                     <tr>
                                                                         <td>{{ $count++ }}</td>
-                                                                        <td>{{ $order->created_at->toDayDateTimeString() }}</td>
-                                                                        <td>&#8358;{{ number_format($order->amount, 2) }}</td>
+                                                                        <td>{{ $regOrder->created_at->toDayDateTimeString() }}</td>
+                                                                        <td>&#8358;{{ number_format($regOrder->amount, 2) }}</td>
                                                                         <td>
-                                                                            @if($order->rrr == NULL)
+                                                                            @if($regOrder->rrr == NULL)
                                                                                 no RRR generated
                                                                             @else
-                                                                                {{ $order->rrr }}
+                                                                                {{ $regOrder->rrr }}
                                                                             @endif
                                                                         </td>
                                                                         <td>
-                                                                            @if($order->status == 1)
+                                                                            @if($regOrder->status == 1)
                                                                                 <span class="text-success">transaction successful</span>
-                                                                            @elseif($order->status==2)
+                                                                            @elseif($regOrder->status==2)
                                                                                 <span class="text-danger">transaction failed</span>
                                                                             @else
                                                                                 <span class="text-danger">transaction pending</span>

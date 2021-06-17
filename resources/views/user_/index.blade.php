@@ -24,8 +24,8 @@
                 <ul class="list-group no-border"> 
 
                         <li class="list-group-item">1. 
-                            @if($acceptance_fee)
-                            @if($acceptance_fee->status == 1)     
+                            @if($registration_fee)
+                            @if($registration_fee->status == 1)     
                                 <a class="text-success">Registration Fee</a>
                             @else             
                                     Pay Registration Fee
@@ -35,7 +35,7 @@
                                     Pay Registration Fee
                             @endif
                             @if($acceptance_fee)
-                            @if($registeration)<span><i class="text-success fa fa-check-circle"></i></span>@endif 
+                            @if($registration_fee)<span><i class="text-success fa fa-check-circle"></i></span>@endif 
                             @endif
                         </li>
 
@@ -61,11 +61,16 @@
                 </ul>
 
                 <div class="text-center">
-                    @if($user->count == 0)
-                    <a href="{{ route('user.choose.subjects') }} " class="btn btn-primary">Begin Application</a>
-                    @elseif($user->count == 1)
-                    <a href="{{ route('user.upload.files') }} " class="btn btn-primary">Continue Application</a>
-                    @elseif($user->count == 2)
+                    @if($registration_fee)
+                    @if($registration_fee->status == 1)   
+                    <a href="{{ route('user.choose.subjects') }} " class="btn btn-primary">Continue Application</a>
+                    @else
+                    <a href="{{ route('user.registration-fee') }} " class="btn btn-primary">Begin Application</a>
+                    @endif
+                    @endif
+                    @if($user->count == 2)
+                    <a href="{{ route('user.upload.files') }} " class="btn btn-primary">Continue Registration</a>
+                    @elseif($user->count == 3)
                     <h4>Wait for Verification </h4>
                     @endif
                 </div>
@@ -104,10 +109,10 @@
                 <h4 class="widget-title">CODeL Handbook</h4>
             </header><!-- .widget-header -->
             <hr class="widget-separator">
-            <div class="widget-body row text-center">
+            <div class="widget-body row text-left">
                 <!-- <p class="alert alert-info">Download the Fees structure for CODeL.</p> -->
 
-                <div class="text-center">
+                <div class="text-left">
                     <a href="{{ asset('files/handbook.pdf') }}" class="btn btn-primary" target="_blank">Download Handbook</a>
                 </div>
             </div><!-- .widget-body -->
@@ -124,7 +129,7 @@
             <div class="widget-body row text-center">
                 <!-- <p class="alert alert-info">Download the Fees structure for CODeL.</p> -->
 
-                <div class="text-center">
+                <div class="text-left">
                     <a href="{{ asset('files/codel_fees.pdf') }}" class="btn btn-primary" target="_blank">Download Fee</a>
                 </div>
             </div><!-- .widget-body -->

@@ -10,6 +10,8 @@ use App\User;
 use App\Subject;
 use App\Olevel;
 use App\Credential;
+use App\Order;
+use App\PaymentList;
 use Image;
 use Session;
 
@@ -152,5 +154,25 @@ class RegistrationController extends Controller
             DB::table('users')->where('id', Auth::id())->update(['count' => 3]); 
             return redirect()->route('user.dashboard');
             }  
+
+    public function makeOrder()
+    {
+        $orderExist = Order::where(['user_id' => Auth::id(), 'status' => 0])->first();
+        if ($orderExist) {
+            $order = Order::where(['user_id' => Auth::id(), 'status' => 0])->first();
+            $paymentList = PaymentList::first();
+            
+            return view('user_.registration-pay', compact('paymentList', 'order'));
+        } 
+
+        $paymentList = PaymentList::first();
+        $order = Order::create([
+            'user_id' => Auth::id(),
+            'payment_list_id' => $paymentList->id,
+            'amount' => $paymentList->amount
+        ]);
+
+        return view('user_.registration-pay', compact('paymentList', 'order'));
+    }
     
     }

@@ -51,6 +51,13 @@ Route::group(['as'=>'user.','prefix' => 'user','namespace'=>'User','middleware'=
 		Route::post('submit-result', 'RegistrationController@submitResults')->name('submit.results');
 		Route::get('upload-my-files', 'RegistrationController@uploadFiles')->name('upload.files');
 		Route::post('upload-my-files', 'RegistrationController@submitFiles')->name('submit.files');
+
+		//Registration fee 
+
+		Route::get('registration-fee', 'RegistrationFeeController@createOrder')->name('registration.order');
+		Route::get('registration-fee-form/{regorder}', 'RegistrationFeeController@remitaRequestView')->name('registration.remita.request');
+		Route::get('registration-callback', 'RegistrationFeeController@callback')->name('acceptance.callback');
+		Route::get('registration-fee-history', 'RegistrationFeeController@paymentHistory')->name('registration.history');
 		
 		//Acceptance fee 
 
