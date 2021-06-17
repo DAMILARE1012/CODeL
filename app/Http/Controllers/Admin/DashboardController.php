@@ -41,8 +41,11 @@ class DashboardController extends Controller
     }
     public function deletesubject($id)
     {
-         Subject::where('id', $id)->delete();   
+        Subject::where('id', $id)->delete();   
         return redirect()->back()->with('success', 'Deleted');
     }
     //end O-Level Subject
+    public function registration_fees(){
+        return view('admin.reg_fee');
+    }
 }
