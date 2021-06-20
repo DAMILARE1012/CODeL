@@ -112,7 +112,7 @@ class RegistrationController extends Controller
             
             $olevel1 = $request->olevel1;
             $olevel1_name = Auth::id() . time() . $olevel1->getClientOriginalName();
-            $olevel1->move('/images/credentials/olevel', $olevel1_name);
+            $olevel1->move('/images/credentials/olevel/', $olevel1_name);
 
             $birth_certificate = $request->birth_certificate;
             $birth_certificate_name = Auth::id() . time() . $birth_certificate->getClientOriginalName();

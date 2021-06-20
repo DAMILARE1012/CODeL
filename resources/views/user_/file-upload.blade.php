@@ -17,7 +17,9 @@
 									<!-- Only Applicants with two sittings are to upload O'Level 1 & O'Level 2 results. -->
 								</small>
 							</div>
-
+							@foreach ($errors->all() as $error)
+		                    <li>{{ $error }}</li>
+		                    @endforeach
 							<form action="{{ route('user.submit.files') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
 								@csrf
 								<div class="form-group @error('olevel') has-error @enderror">
@@ -49,8 +51,19 @@
 									</div><!-- END column -->
 								</div><!-- .form-group -->
 								@else
+								<div class="form-group @error('olevel') has-error @enderror">
+									<label for="select2-demo-2" class="col-sm-4 control-label">O'level Result 1</label>
+									<span>PDF Only</span>
+									<div class="col-sm-6">
+										<input type="file" name="olevel1" class="form-control" required>
+
+										@error('olevel1')
+											<div class="alert-danger">{{ $message }}</div>
+										@enderror
+									</div><!-- END column -->
+								</div><!-- .form-group -->
 								<div class="form-group @error('olevel2') has-error @enderror">
-									<label for="select2-demo-2" class="col-sm-4 control-label">O'level Result 2 (optional)</label>
+									<label for="select2-demo-2" class="col-sm-4 control-label">O'level Result 2</label>
 									<span>PDF Only</span>
 									<div class="col-sm-6">
 										<input type="file" name="olevel2" class="form-control">

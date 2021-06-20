@@ -32,7 +32,7 @@
       </div>
       <div class="media-body">
         <div class="foldable">
-          <h5><a href="javascript:void(0)" class="username">admin</a></h5>
+          <h5><a href="javascript:void(0)" class="username">{{ Auth::user()->fname }}</a></h5>
           <ul>
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropdown-toggle usertitle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

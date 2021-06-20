@@ -19,14 +19,16 @@
                     </div>
                     @endif
 
-                        
+                @if(!$user->count ==3)        
                 <p class="alert alert-info">Follow the guidelines below to complete your application.</p>
+                @endif
                 <ul class="list-group no-border"> 
+                
 
                         <li class="list-group-item">1. 
                             @if($registration_fee)
                             @if($registration_fee->status == 1)     
-                                <a class="text-success">Registration Fee</a>
+                                <a class="text-success">Registration Fee Paid</a>
                             @else             
                                     Pay Registration Fee
                             @endif 
@@ -61,14 +63,11 @@
                 </ul>
 
                 <div class="text-center">
-                    @if($registration_fee)
-                    @if($registration_fee->status == 1)   
+                    @if($user->count == 0)
+                    <a href="{{ route('user.registration.order') }} " class="btn btn-primary">Begin Application</a>
+                    @elseif($user->count == 1)
                     <a href="{{ route('user.choose.subjects') }} " class="btn btn-primary">Continue Application</a>
-                    @else
-                    <a href="{{ route('user.registration-fee') }} " class="btn btn-primary">Begin Application</a>
-                    @endif
-                    @endif
-                    @if($user->count == 2)
+                    @elseif($user->count == 2)
                     <a href="{{ route('user.upload.files') }} " class="btn btn-primary">Continue Registration</a>
                     @elseif($user->count == 3)
                     <h4>Wait for Verification </h4>
@@ -79,7 +78,27 @@
         </div><!-- .widget -->
 
     </div><!-- END column -->
+    @if($user->count ==3)
+    <div class="col-md-6">
+        <div class="widget">
+            <header class="widget-header">
+                <h4 class="widget-title">NOTICE</h4>
+            </header><!-- .widget-header -->
+            <hr class="widget-separator">
+            <div class="widget-body row">
 
+                <ul class="list-group no-border">                   
+                    <li class="list-group-item"><a class="text-primary">You have successfully registered for {{ $user->program }}. Your credencals are presently being Verified. <br><br> Kindly check on this page for admission status. </a></li>
+                </ul>
+                
+               
+            </div><!-- .widget-body -->
+
+        </div><!-- .widget -->
+ 
+    </div><!-- END column -->
+
+    @else
     <div class="col-md-6">
         <div class="widget">
             <header class="widget-header">
@@ -99,6 +118,7 @@
         </div><!-- .widget -->
  
     </div><!-- END column -->
+    @endif
 </div><!-- .row -->
 
 <div class="row">
@@ -112,7 +132,7 @@
             <div class="widget-body row text-left">
                 <!-- <p class="alert alert-info">Download the Fees structure for CODeL.</p> -->
 
-                <div class="text-left">
+                <div class="text" style="margin-left: 10px">
                     <a href="{{ asset('files/handbook.pdf') }}" class="btn btn-primary" target="_blank">Download Handbook</a>
                 </div>
             </div><!-- .widget-body -->
@@ -129,7 +149,7 @@
             <div class="widget-body row text-center">
                 <!-- <p class="alert alert-info">Download the Fees structure for CODeL.</p> -->
 
-                <div class="text-left">
+                <div style="margin-left: -328px">
                     <a href="{{ asset('files/codel_fees.pdf') }}" class="btn btn-primary" target="_blank">Download Fee</a>
                 </div>
             </div><!-- .widget-body -->

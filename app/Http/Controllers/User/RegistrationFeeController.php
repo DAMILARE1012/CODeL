@@ -49,6 +49,8 @@ class RegistrationFeeController extends Controller
             $regOrder->rrr = request()->RRR;
             $regOrder->save();
 
+            DB::table('users')->where('id', Auth::id())->update(['count' => 1]); 
+
             return redirect()->route('user.registration.remita.request', ['regOrder' => $regOrder->id]);
         } 
     }

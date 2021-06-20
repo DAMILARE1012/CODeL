@@ -32,7 +32,7 @@
       </div>
       <div class="media-body">
         <div class="foldable">
-          <h5><a href="javascript:void(0)" class="username">admin</a></h5>
+          <h5><a href="javascript:void(0)" class="username">{{ Auth::user()->fname }}</a></h5>
           <ul>
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropdown-toggle usertitle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,7 +44,7 @@
                 <li>
                   <a class="text-color" href="{{ route('home') }}">
                     <span class="m-r-xs"><i class="fa fa-home"></i></span>
-                    <span>Home</span>
+                    <span>Home Site</span>
                   </a>
                 </li>
                 
@@ -74,7 +74,7 @@
       <ul class="app-menu">
         
         <li>
-          <a href="http://localhost:8000/home">
+          <a href="{{ route('admin.dashboard') }} ">
             <i class="menu-icon fa fa-home"></i>
             <span class="menu-text">Home</span>
           </a>

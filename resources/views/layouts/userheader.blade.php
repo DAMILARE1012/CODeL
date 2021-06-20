@@ -1,5 +1,5 @@
 <li>
-          <h5 class="page-title hidden-menubar-top hidden-float">Dashboard</h5>
+          <h5 class="page-title hidden-menubar-top hidden-float">Dashboard {{ Auth::user()->name }}</h5>
         </li>
       </ul>
 
@@ -31,11 +31,11 @@
       </div>
       <div class="media-body">
         <div class="foldable">
-          <h5><a href="javascript:void(0)" class="username">admin</a></h5>
+          <h5><a href="javascript:void(0)" class="username">{{ Auth::user()->fname }}</a></h5>
           <ul>
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropdown-toggle usertitle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <small>My Profile</small>
+                <small>Profile</small>
                 <span class="caret"></span>
               </a>
 
@@ -106,8 +106,7 @@
             <span class="menu-text">Admission Status</span>
           </a>
         </li>
-                
-        
+                   
         <li>
           <a class="text-color" href="{{ route('logout') }}"
               onclick="event.preventDefault();
