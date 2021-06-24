@@ -81,7 +81,7 @@
         </li>
 
         <li>
-          <a href="{{route('admin.registered_users') }} ">
+          <a href="{{route('admin.registrations') }} ">
             <i class="menu-icon fa fa-user"></i>
             <span class="menu-text">Registered Users</span>
           </a>

@@ -28,7 +28,7 @@
                                   @foreach ($users->all() as $user)
                                     <tr>
                                         <td>{{ $user->id }}</td>
-                                        <td>{{ $user->fname }} {{ $user->mname }} {{ $user->lname }}</td>
+                                        <td>{{ $user->fname }} {{ $user->mname }} <b>{{ $user->lname }}</b></td>
                                         <td>{{ $user->program }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->phone }}</td>

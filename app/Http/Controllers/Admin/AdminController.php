@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use Session;
+use App\AcademicSession;
+use App\Registration;
 
 class AdminController extends Controller
 {
@@ -13,10 +16,20 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function registrations()
     {
         //
+        $registrations = User::all();
+        $academicSession = AcademicSession::all();
+        return view('admin.students.registration.index', compact('academicSession', 'registrations'));
         
+    }
+
+    public function registrationsbySessions($sessionId){
+        
+        $session = \App\AcademicSession::find($sessionId);
+        $registrations = User::where('academic_session', $session->session)->get();
+        return view('admin.students.registration.registrations', compact('registrations', 'session'));
 
     }
 
@@ -88,8 +101,8 @@ class AdminController extends Controller
 
     public function registered_users(){
 
-        $users = User::all();
-        return view("admin.registered_users")->withUsers($users);
+        
+        return view("admin.registered_users", compact('registrations') );
 
     }
 }

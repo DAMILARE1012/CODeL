@@ -25,6 +25,10 @@ class CreateUsersTable extends Migration
             $table->string('program');
             $table->string('phone');
             $table->string('count');
+            $table->boolean('admission_accepted')->nullable();
+            $table->boolean('admission_status')->default(0);
+            $table->string('academic_session')->nullable();
+            $table->timestamp('admission_date')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
