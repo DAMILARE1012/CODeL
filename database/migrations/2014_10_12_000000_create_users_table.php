@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\AcademicSession;
 
 class CreateUsersTable extends Migration
 {
@@ -13,7 +14,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        
+
         Schema::create('users', function (Blueprint $table) {
+
+            $academicSession = AcademicSession::where('active', 1)->first();
+
             $table->bigIncrements('id');
             $table->bigInteger('role_id')->default(1);
             $table->string('fname');
@@ -25,10 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('program');
             $table->string('phone');
             $table->string('count');
-            $table->boolean('admission_accepted')->nullable();
-            $table->boolean('admission_status')->default(0);
-            $table->string('academic_session')->nullable();
-            $table->timestamp('admission_date')->nullable();
+            $table->string('admission_session')->default($academicSession->session);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

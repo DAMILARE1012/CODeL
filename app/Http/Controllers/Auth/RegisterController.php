@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Auth;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -95,6 +96,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
+
+        // dd($academicSession->session);
 
         return User::create([
             'role_id' => $data['role_id'],
@@ -110,6 +114,7 @@ class RegisterController extends Controller
             'country' => $data['country'],
             'state' => $data['state'],
         ]);
+
     }
 }
 

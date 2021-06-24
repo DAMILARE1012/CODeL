@@ -5,14 +5,14 @@ use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        DB::table('users')->insert([
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		DB::table('users')->insert([
 			'role_id' => '1',
 			'fname' => 'Admin',
 			'mname' => 'MAdmin',
@@ -22,6 +22,7 @@ class UsersTableSeeder extends Seeder
 			'state' => 'niger',
 			'program' => 'computer',
 			'phone' => '353443524',
+			'admission_session' => '',
 			'count' => '1',
 			'email' => 'admin@gmail.com',
 			'password' => bcrypt('adminpassword'),
@@ -37,6 +38,7 @@ class UsersTableSeeder extends Seeder
 			'state' => 'niger',
 			'program' => 'computer',
 			'phone' => '353443524',
+			'admission_session' => '',
 			'count' => '1',
 			'email' => 'user@gmail.com',
 			'password' => bcrypt('userpassword'),
@@ -52,9 +54,10 @@ class UsersTableSeeder extends Seeder
 			'state' => 'niger',
 			'program' => 'computer',
 			'phone' => '353443524',
+			'admission_session' => '',
 			'count' => '1',
 			'email' => 'manager@gmail.com',
 			'password' => bcrypt('managerpassword'),
 		]);
-    }
+	}
 }
