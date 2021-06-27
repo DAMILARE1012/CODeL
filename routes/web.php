@@ -33,48 +33,51 @@ Auth::routes();
 
 //Admin Middleware
 
-Route::group(['as'=>'admin.','prefix' => 'admin','namespace'=>'Admin','middleware'=>['auth','admin']], function () {
-		Route::get('dashboard', 'DashboardController@index')->name('dashboard');
-		Route::get('subject', 'DashboardController@subject')->name('subject');
-		Route::get('add-subject', 'DashboardController@addsubject')->name('add.subject');
-		Route::post('store-subject', 'DashboardController@storesubject')->name('store.subject');
-		Route::get('delete-subject/{id}', 'DashboardController@deletesubject')->name('delete.subject');
-		Route::get('registration', 'DashboardController@registration_fees')->name('registration');
-		Route::get('registered_users', 'AdminController@registered_users')->name('registered_users');
-		Route::get('registrations', 'AdminController@registrations')->name('registrations');
-		Route::get('registrations-by-sessions/{session}', 'AdminController@registrationsbySessions')->name('registrationsbySessions');
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
+	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+	Route::get('subject', 'DashboardController@subject')->name('subject');
+	Route::get('add-subject', 'DashboardController@addsubject')->name('add.subject');
+	Route::post('store-subject', 'DashboardController@storesubject')->name('store.subject');
+	Route::get('delete-subject/{id}', 'DashboardController@deletesubject')->name('delete.subject');
+	Route::get('registration', 'DashboardController@registration_fees')->name('registration');
+	Route::get('registered_users', 'AdminController@registered_users')->name('registered_users');
+	Route::get('registrations', 'AdminController@registrations')->name('registrations');
+	Route::get('registrations-by-sessions/{session}', 'AdminController@registrationsbySessions')->name('registrationsbySessions');
+	Route::get('sessions', 'SessionController@index')->name('sessions');
+	Route::post('sessions', 'SessionController@store')->name('sessions.store');
+	Route::get('disable_session/{active}', 'SessionController@disableSession')->name('disable_session');
+	Route::get('enable_session/{active}', 'SessionController@enableSession')->name('enable_session');
 });
 
 
 //User Middleware
 
-Route::group(['as'=>'user.','prefix' => 'user','namespace'=>'User','middleware'=>['auth','user']], function () {
-		Route::get('dashboard', 'DashboardController@index')->name('dashboard');
-		Route::get('o-level-subjects', 'RegistrationController@chooseSubjects')->name('choose.subjects');
-		Route::post('subjects', 'RegistrationController@processSelectedSubjects')->name('process.subjects');
-		Route::post('submit-result', 'RegistrationController@submitResults')->name('submit.results');
-		Route::get('upload-my-files', 'RegistrationController@uploadFiles')->name('upload.files');
-		Route::post('upload-my-files', 'RegistrationController@submitFiles')->name('submit.files');
+Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'user']], function () {
+	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+	Route::get('o-level-subjects', 'RegistrationController@chooseSubjects')->name('choose.subjects');
+	Route::post('subjects', 'RegistrationController@processSelectedSubjects')->name('process.subjects');
+	Route::post('submit-result', 'RegistrationController@submitResults')->name('submit.results');
+	Route::get('upload-my-files', 'RegistrationController@uploadFiles')->name('upload.files');
+	Route::post('upload-my-files', 'RegistrationController@submitFiles')->name('submit.files');
 
-		//Registration fee 
+	//Registration fee 
 
-		Route::get('registration-fee', 'RegistrationFeeController@createOrder')->name('registration.order');
-		Route::get('registration-fee-form/{regorder}', 'RegistrationFeeController@remitaRequestView')->name('registration.remita.request');
-		Route::get('registration-callback', 'RegistrationFeeController@callback')->name('acceptance.callback');
-		Route::get('registration-fee-history', 'RegistrationFeeController@paymentHistory')->name('registration.history');
-		
-		//Acceptance fee 
+	Route::get('registration-fee', 'RegistrationFeeController@createOrder')->name('registration.order');
+	Route::get('registration-fee-form/{regorder}', 'RegistrationFeeController@remitaRequestView')->name('registration.remita.request');
+	Route::get('registration-callback', 'RegistrationFeeController@callback')->name('acceptance.callback');
+	Route::get('registration-fee-history', 'RegistrationFeeController@paymentHistory')->name('registration.history');
 
-		Route::get('acceptance-fee', 'AcceptanceFeeController@createOrder')->name('acceptance.order');
-		Route::get('acceptance-fee-form/{order}', 'AcceptanceFeeController@remitaRequestView')->name('remita.request');
-		Route::get('callback', 'AcceptanceFeeController@callback')->name('acceptance.callback');
-		Route::get('acceptance-fee-history', 'AcceptanceFeeController@paymentHistory')->name('acceptance.history');
+	//Acceptance fee 
+
+	Route::get('acceptance-fee', 'AcceptanceFeeController@createOrder')->name('acceptance.order');
+	Route::get('acceptance-fee-form/{order}', 'AcceptanceFeeController@remitaRequestView')->name('remita.request');
+	Route::get('callback', 'AcceptanceFeeController@callback')->name('acceptance.callback');
+	Route::get('acceptance-fee-history', 'AcceptanceFeeController@paymentHistory')->name('acceptance.history');
 });
 
 
 //Manager Middleware
 
-Route::group(['as'=>'manager.','prefix' => 'manager','namespace'=>'Manager','middleware'=>['auth','manager']], function () {
-		Route::get('dashboard', 'DashboardController@index')->name('dashboard');
-
+Route::group(['as' => 'manager.', 'prefix' => 'manager', 'namespace' => 'Manager', 'middleware' => ['auth', 'manager']], function () {
+	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 });

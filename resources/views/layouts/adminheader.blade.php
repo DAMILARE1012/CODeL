@@ -88,6 +88,13 @@
         </li>
 
         <li>
+          <a href="{{route('admin.sessions') }} ">
+            <i class="menu-icon fa fa-user"></i>
+            <span class="menu-text">Sessions</span>
+          </a>
+        </li>
+
+        <li>
           <a href="{{route('admin.subject') }} ">
             <i class="menu-icon fa fa-square"></i>
             <span class="menu-text">Subject</span>
