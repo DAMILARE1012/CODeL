@@ -37,7 +37,7 @@ class RegistrationController extends Controller
         public function processSelectedSubjects(Request $request)
     {
         $this->validate($request, [
-            'subjects' => 'required',
+            'subjects' => 'required|min:7',
             'sittings' => 'required',
         ]);
         $selectedSubjects = Subject::findMany($request->subjects);  
@@ -112,11 +112,11 @@ class RegistrationController extends Controller
             
             $olevel1 = $request->olevel1;
             $olevel1_name = Auth::id() . time() . $olevel1->getClientOriginalName();
-            $olevel1->move('/images/credentials/olevel/', $olevel1_name);
+            $olevel1->move('images/credentials/olevel/', $olevel1_name);
 
             $birth_certificate = $request->birth_certificate;
             $birth_certificate_name = Auth::id() . time() . $birth_certificate->getClientOriginalName();
-            $birth_certificate->move('/images/credentials/birth/', $birth_certificate_name);  
+            $birth_certificate->move('images/credentials/birth/', $birth_certificate_name);  
             
             $path = public_path().'/images/credentials/passportz/';      
                 $originalImage = $request->file('passport');
@@ -136,7 +136,7 @@ class RegistrationController extends Controller
             if ($request->hasFile('olevel2')) {
                 $olevel2 = $request->olevel2;
                 $olevel2_name = Auth::id() . time() . $olevel2->getClientOriginalName();
-                $olevel2->move('/images/credentials/olevel/', $olevel2_name);
+                $olevel2->move('images/credentials/olevel/', $olevel2_name);
                 $upload->olevel2 = $olevel2_name;
                 $upload->save();
             }
@@ -145,7 +145,7 @@ class RegistrationController extends Controller
 
                 $other = $request->other;
                 $other_name = Auth::id() . time() . $other->getClientOriginalName();
-                $other->move('/images/credentials/others/', $other_name);
+                $other->move('images/credentials/others/', $other_name);
 
                 $upload->other = $other_name;
                 $upload->save();
@@ -171,7 +171,6 @@ class RegistrationController extends Controller
             'payment_list_id' => $paymentList->id,
             'amount' => $paymentList->amount
         ]);
-
         return view('user_.registration-pay', compact('paymentList', 'order'));
     }
     

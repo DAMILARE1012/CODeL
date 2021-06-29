@@ -78,6 +78,9 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
 
 //Manager Middleware
 
-Route::group(['as' => 'manager.', 'prefix' => 'manager', 'namespace' => 'Manager', 'middleware' => ['auth', 'manager']], function () {
-	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+Route::group(['as'=>'manager.','prefix' => 'manager','namespace'=>'Manager','middleware'=>['auth','manager']], function () {
+		Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+		Route::get('registered/session/{id} ', 'DashboardController@registrationsbySessions')->name('registrationsbySessions');
+		Route::get('registered/sessions', 'DashboardController@registrations')->name('registrations');
+
 });

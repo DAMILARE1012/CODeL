@@ -96,10 +96,7 @@
 							@if(Session::has('selectedSubjects'))
 								<a href="" class="btn btn-danger btn-md" onClick="window.location.reload();">Cancel selection</a>
 							@endif
-							@if(Session::get('selectedSubjects')->count() < 4)
-							<br>
-							<p class="text-info">Minimum of 5 Subject is required.</p>  
-							@endif
+							
 						@endif
                         </div>
                         <!-- .widget-body -->
@@ -116,8 +113,6 @@
 		$subjects = Session::get('selectedSubjects');
 	@endphp
 
-
-	@if(Session::get('selectedSubjects')->count() > 4)
 <div class="row">
   
     <div class="wrap">
@@ -237,7 +232,5 @@
 </div>
 @else
 @endif 
-@endif
 @endsection
-@section('scripts')
-@endsection	
+	
