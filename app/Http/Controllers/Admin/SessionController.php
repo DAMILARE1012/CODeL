@@ -119,7 +119,7 @@ class SessionController extends Controller
         $session = AcademicSession::findOrFail($id);
 
         $session->active = 0;
-        $session->save();
+        $session->save(); 
         // {{ dump($session); }}
         
         $request->session()->flash('success', 'Session Disabled');
