@@ -39,7 +39,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 	Route::get('add-subject', 'DashboardController@addsubject')->name('add.subject');
 	Route::post('store-subject', 'DashboardController@storesubject')->name('store.subject');
 	Route::get('delete-subject/{id}', 'DashboardController@deletesubject')->name('delete.subject');
-	Route::get('registration', 'DashboardController@registration_fees')->name('registration');
+	
 	Route::get('registered_users', 'AdminController@registered_users')->name('registered_users');
 	Route::get('registrations', 'AdminController@registrations')->name('registrations');
 	Route::get('registrations-by-sessions/{session}', 'AdminController@registrationsbySessions')->name('registrationsbySessions');
@@ -47,6 +47,14 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 	Route::post('sessions', 'SessionController@store')->name('sessions.store');
 	Route::get('disable_session/{active}', 'SessionController@disableSession')->name('disable_session');
 	Route::get('enable_session/{active}', 'SessionController@enableSession')->name('enable_session');
+
+	Route::get('registration_fees', 'PaymentListController@index')->name('registration_fees');
+	
+	Route::post('registration_fees', 'PaymentListController@store')->name('registration_fees.store');
+
+	Route::get('registration_fees/{id}', 'PaymentListController@edit')->name("registration_fees.edit");
+
+	Route::get('registration_fees/{id}', 'PaymentListController@destroy')->name('registration_fees.destroy');
 });
 
 

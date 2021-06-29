@@ -102,7 +102,7 @@
         </li>
 
         <li>
-          <a href="{{route('admin.registration') }} ">
+          <a href="{{route('admin.registration_fees') }} ">
             <i class="menu-icon glyphicon glyphicon-list-alt"></i>
             <span class="menu-text">Registration Fees</span>
           </a>

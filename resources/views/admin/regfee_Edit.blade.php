@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="widget">
                         <header class="widget-header">
-                            <h4 class="widget-title">Add New Fees</h4>
+                            <h4 class="widget-title">Edit Fee</h4>
                         </header><!-- .widget-header -->
                         <hr class="widget-separator">
                         <div class="widget-body row">
@@ -19,8 +19,9 @@
                                 </div>
                             @endif
 
-                            <form method="POST" action="{{ route('admin.registration_fees.store') }}">
+                            <form method="POST" action="{{ route('admin.registration_fees.update, $paymentList->id') }}">
                                 @csrf
+                                @method('PUT')
 
                                 <div class="form-group row">
                                     
@@ -28,24 +29,14 @@
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-6">
                                                 <div class="form-group mb-30">
-                                                    <select id="fees_category" name="fees_category" class="form-control" required="">
-                                                        <option value="">Choose Fees Category</option>
-                                                        <option value="Acceptance Fees">Acceptance Fees</option>
-                                                        <option value="Registration Fees">Registration Fees</option>
-                                                        <option value="Application Fees">Application Fees</option>
-                                                    </select>
+                                                    <strong>Fee Category:</strong>
+                                                    <input type="text" name="name" value="{{ $paymentList->name }}" class="form-control" placeholder="Fee's Category">
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-sm-6">
                                                 <div class="form-group mb-30">
-                                                    <input id="amount" type="text" class="form-control"
-                                            name="amount" placeholder="Amount" autofocus required>
-
-                                                        @error('title')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
+                                                    <strong>Amount:</strong>
+                                                    <input type="text" name="name" value="{{ $paymentList->amount }}" class="form-control" placeholder="Amount">
                                                 </div>
                                             </div>
                                         </div>
@@ -96,13 +87,7 @@
                                     <td scope="row">{{ $paymentList->id }}</td>
                                     <td scope="row">{{ $paymentList->name }}</td>
                                     <td>{{ $paymentList->amount }}</td>
-                                    <td>
-
-                                        <a href="#" class="btn btn-primary btn-sm active mr-4" role="button" aria-pressed="true" style="margin-right: 40px;">Edit</a>
-                                        
-                                        <a href="{{ route('admin.registration_fees.destroy', ['id' => $paymentList->id])}}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Delete</a>
-                                    
-                                    </td>
+                                    <td><a href="#" class="btn btn-primary btn-sm active mr-4" role="button" aria-pressed="true" style="margin-right: 40px;">Edit</a><a href="#" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Delete</a></td>
                                   </tr>
                                   @endforeach                                
                               </tbody>
