@@ -16,7 +16,7 @@ class CreatePaymentListsTable extends Migration
         Schema::create('payment_lists', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->float('amount')->default(5000);
+            $table->float('amount');
             $table->timestamps();
         });
     }

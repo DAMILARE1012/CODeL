@@ -14,10 +14,9 @@
                         <div class="widget-body">
                             <ul class="list-group">
                                 @foreach($academicSession as $session)
-                                    <a href="{{ url('registrations-by-sessions/{session}', ['session'=>$session->id]) }}">
+                                    <a href="{{ route('admin.registrationsbySessions',['session' => $session->id]) }}">
                                         <li class="list-group-item bg-dark"><b>{{ $session->session }}</b></li>
                                     </a>
-                                    {{-- {{ route('registrationsbySessions', ['session' => $session->id]) }} --}}
                                     
                                 @endforeach
                             </ul>
@@ -25,7 +24,6 @@
                     </div><!-- .widget -->
                 </div><!-- END column -->
             </div><!-- .row -->
-
         </section><!-- .app-content -->
     </div>
 </main>

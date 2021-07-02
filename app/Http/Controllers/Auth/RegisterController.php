@@ -98,8 +98,6 @@ class RegisterController extends Controller
     {
         
 
-        // dd($academicSession->session);
-
         return User::create([
             'role_id' => $data['role_id'],
             'fname' => $data['fname'],

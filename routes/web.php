@@ -35,26 +35,31 @@ Auth::routes();
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
 	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+	//Olevel Subjects
 	Route::get('subject', 'DashboardController@subject')->name('subject');
 	Route::get('add-subject', 'DashboardController@addsubject')->name('add.subject');
 	Route::post('store-subject', 'DashboardController@storesubject')->name('store.subject');
 	Route::get('delete-subject/{id}', 'DashboardController@deletesubject')->name('delete.subject');
-	
-	Route::get('registered_users', 'AdminController@registered_users')->name('registered_users');
-	Route::get('registrations', 'AdminController@registrations')->name('registrations');
-	Route::get('registrations-by-sessions/{session}', 'AdminController@registrationsbySessions')->name('registrationsbySessions');
+	//registered
+	Route::get('registered/sessions', 'RegisterController@registrations')->name('registrations');
+	Route::get('registered/session/{id} ', 'RegisterController@registrationsbySessions')->name('registrationsbySessions');
+	Route::get('registration/{id}', 'RegisterController@singleRegistration')->name('single.registration');
+	//Offering Admission 
+	Route::get('/offer-addmission/{id}', 'AdmissionController@offerAdmission')->name('offer.admission');
+	//Revocking Admission
+	Route::get('/decline-addmission/{id}', 'AdmissionController@declineAdmission')->name('decline.admission');
+
+	//Academic sessions 
 	Route::get('sessions', 'SessionController@index')->name('sessions');
 	Route::post('sessions', 'SessionController@store')->name('sessions.store');
 	Route::get('disable_session/{active}', 'SessionController@disableSession')->name('disable_session');
 	Route::get('enable_session/{active}', 'SessionController@enableSession')->name('enable_session');
-
+	//fees
 	Route::get('registration_fees', 'PaymentListController@index')->name('registration_fees');
-	
 	Route::post('registration_fees', 'PaymentListController@store')->name('registration_fees.store');
-
 	Route::get('registration_fees/{id}', 'PaymentListController@edit')->name("registration_fees.edit");
-
 	Route::get('registration_fees/{id}', 'PaymentListController@destroy')->name('registration_fees.destroy');
+
 });
 
 
@@ -67,16 +72,12 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
 	Route::post('submit-result', 'RegistrationController@submitResults')->name('submit.results');
 	Route::get('upload-my-files', 'RegistrationController@uploadFiles')->name('upload.files');
 	Route::post('upload-my-files', 'RegistrationController@submitFiles')->name('submit.files');
-
 	//Registration fee 
-
 	Route::get('registration-fee', 'RegistrationFeeController@createOrder')->name('registration.order');
 	Route::get('registration-fee-form/{regorder}', 'RegistrationFeeController@remitaRequestView')->name('registration.remita.request');
 	Route::get('registration-callback', 'RegistrationFeeController@callback')->name('acceptance.callback');
 	Route::get('registration-fee-history', 'RegistrationFeeController@paymentHistory')->name('registration.history');
-
 	//Acceptance fee 
-
 	Route::get('acceptance-fee', 'AcceptanceFeeController@createOrder')->name('acceptance.order');
 	Route::get('acceptance-fee-form/{order}', 'AcceptanceFeeController@remitaRequestView')->name('remita.request');
 	Route::get('callback', 'AcceptanceFeeController@callback')->name('acceptance.callback');
@@ -85,10 +86,11 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
 
 
 //Manager Middleware
-
 Route::group(['as'=>'manager.','prefix' => 'manager','namespace'=>'Manager','middleware'=>['auth','manager']], function () {
 		Route::get('dashboard', 'DashboardController@index')->name('dashboard');
-		Route::get('registered/session/{id} ', 'DashboardController@registrationsbySessions')->name('registrationsbySessions');
 		Route::get('registered/sessions', 'DashboardController@registrations')->name('registrations');
+		Route::get('registered/session/{id} ', 'DashboardController@registrationsbySessions')->name('registrationsbySessions');
+		Route::get('fees-list ', 'DashboardController@fees_list')->name('fees.list');
+		
 
 });

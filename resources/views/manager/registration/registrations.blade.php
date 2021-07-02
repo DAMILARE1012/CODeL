@@ -8,7 +8,7 @@
                 <div class="col-md-12">
                     <div class="widget">
                         <header class="widget-header">
-                            <h4 class="widget-title">Fees</h4>
+                            <h4 class="widget-title">{{$reg_section->academic_session}}</h4>
                         </header><!-- .widget-header -->
                         <hr class="widget-separator">
                     </div>
@@ -21,7 +21,7 @@
                                     <th>Name</th>
                                     <th>Program</th>
                                     <th>Email</th>
-                                    <th>Phone</th>
+                                    <th>Admission Status</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -31,7 +31,7 @@
                                         <td>{{ $user->fname }} {{ $user->mname }} <b>{{ $user->lname }}</b></td>
                                         <td>{{ $user->program }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>{{ $user->phone }}</td>
+                                        <td>#</td>
                                     </tr>
                                   @endforeach
                                 

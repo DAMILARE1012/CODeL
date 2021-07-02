@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-@include('layouts.adminheader')
+@include('layouts.managerheader')
 <main id="app-main" class="app-main">
     <div class="wrap">
         <section class="app-content">
@@ -17,21 +17,17 @@
                         <table class="table table-striped table-bordered">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th>ID</th>
+                                    <th>#</th>
                                     <th>Name</th>
-                                    <th>Program</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
+                                    <th>Amount</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                  @foreach ($users->all() as $user)
+                                  @foreach ($fees_list as $fees)
                                     <tr>
-                                        <td>{{ $user->id }}</td>
-                                        <td>{{ $user->fname }} {{ $user->mname }} <b>{{ $user->lname }}</b></td>
-                                        <td>{{ $user->program }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->phone }}</td>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $fees->name }} </td>
+                                        <td>{{ $fees->amount }}</td>
                                     </tr>
                                   @endforeach
                                 
