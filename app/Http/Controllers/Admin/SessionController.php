@@ -18,7 +18,7 @@ class SessionController extends Controller
     {
         //
         $academicSession = AcademicSession::all();
-        return view('admin.sessions.create_session', compact('academicSession'));
+        return view('admin.sessions.session', compact('academicSession'));
     }
 
     /**
@@ -26,22 +26,10 @@ class SessionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
         $this->validate($request, [
-
             'admission_session' => 'required|max:255',
         ]);
 
@@ -51,7 +39,7 @@ class SessionController extends Controller
 
         $academicSession->save();
 
-        Session::flash('success', 'The academic session was successfully added!');
+        Session::flash('info', 'The academic session was successfully added!');
 
         return redirect()->route('admin.sessions');
     }
@@ -110,7 +98,7 @@ class SessionController extends Controller
         // {{ dump($session); }}
 
 
-        $request->session()->flash('success', 'Session Activated');
+        $request->session()->flash('info', 'Session Activated');
         return redirect()->back();
     }
 
@@ -122,7 +110,7 @@ class SessionController extends Controller
         $session->save(); 
         // {{ dump($session); }}
         
-        $request->session()->flash('success', 'Session Disabled');
+        $request->session()->flash('info', 'Session Disabled');
         return redirect()->back();
     }
 }

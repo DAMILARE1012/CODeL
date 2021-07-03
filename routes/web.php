@@ -37,7 +37,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 	Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 	//Olevel Subjects
 	Route::get('subject', 'DashboardController@subject')->name('subject');
-	Route::get('add-subject', 'DashboardController@addsubject')->name('add.subject');
 	Route::post('store-subject', 'DashboardController@storesubject')->name('store.subject');
 	Route::get('delete-subject/{id}', 'DashboardController@deletesubject')->name('delete.subject');
 	//registered
@@ -56,9 +55,10 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 	Route::get('enable_session/{active}', 'SessionController@enableSession')->name('enable_session');
 	//fees
 	Route::get('registration_fees', 'PaymentListController@index')->name('registration_fees');
-	Route::post('registration_fees', 'PaymentListController@store')->name('registration_fees.store');
-	Route::get('registration_fees/{id}', 'PaymentListController@edit')->name("registration_fees.edit");
-	Route::get('registration_fees/{id}', 'PaymentListController@destroy')->name('registration_fees.destroy');
+	// Route::post('registration_fees', 'PaymentListController@store')->name('registration_fees.store');
+	Route::get('registration_fees/edit/{id} ', 'PaymentListController@edit')->name("registration_fees.edit");
+	Route::post('registration_fees/update/{id}', 'PaymentListController@update')->name('registration_fees.update');
+	// Route::get('registration_fees/{id}', 'PaymentListController@destroy')->name('registration_fees.destroy');
 
 });
 

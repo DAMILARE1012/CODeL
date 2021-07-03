@@ -18,7 +18,7 @@ class AdmissionController extends Controller
         // $user = $registration->user;
         // Mail::to($user->email)->send(new Admission($user));
 
-        Session::flash('status', 'Applicant successfully offered admission');
+        Session::flash('info', 'Applicant successfully offered admission');
         return redirect()->back();
     }
 
@@ -29,7 +29,7 @@ class AdmissionController extends Controller
         $user->admission_accepted = 0;
         $user->save();
 
-        Session::flash('status', 'Applicant admission has been successfully revoked');
+        Session::flash('info', 'Applicant admission has been successfully revoked');
         return redirect()->back();
     }
 }

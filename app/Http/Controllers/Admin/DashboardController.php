@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Subject;
 use DB;
+use Session;
 
 class DashboardController extends Controller
 {
@@ -18,13 +19,7 @@ class DashboardController extends Controller
     public function subject()
     {
         $subject = DB::table('subjects')->get();
-        return view('admin.subject', compact('subject'));
-    }
-
-    public function addsubject()
-    {
-        
-        return view('admin.addsubject');
+        return view('admin.subject.subject', compact('subject'));
     }
 
     public function storesubject(Request $request)
@@ -37,12 +32,14 @@ class DashboardController extends Controller
             
             $subject->subject =$request->subject; 
             $subject->save();
-            return redirect()->route('admin.subject')->with('success', 'Subject Added');
+            Session::flash('info', 'Subject Added!');
+            return redirect()->back();
     }
     public function deletesubject($id)
     {
         Subject::where('id', $id)->delete();   
-        return redirect()->back()->with('success', 'Deleted');
+        Session::flash('info', 'Subject Deleted!');
+        return redirect()->back();
     }
     //end O-Level Subject
     public function registration_fees(){

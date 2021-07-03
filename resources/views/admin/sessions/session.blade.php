@@ -12,11 +12,6 @@
                             </header><!-- .widget-header -->
                             <hr class="widget-separator">
                             <div class="widget-body row">
-                                @if (session('info'))
-                                    <div class="alert alert-success">
-                                        {{ session('info') }}
-                                    </div>
-                                @endif
 
                                 <form method="POST" action="{{ route('admin.sessions.store') }}">
                                     @csrf
@@ -64,6 +59,11 @@
                             <hr class="widget-separator">
                             <div class="widget-body">
                                 <div class="table-responsive">
+                                    @if (session('info'))
+                                    <div class="alert alert-success">
+                                        {{ session('info') }}
+                                    </div>
+                                    @endif
                                     <table id="default-datatable" data-plugin="DataTable" class="table table-striped"
                                         cellspacing="0" width="100%">
                                         <thead>

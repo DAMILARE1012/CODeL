@@ -106,29 +106,7 @@
             <i class="menu-icon glyphicon glyphicon-list-alt"></i>
             <span class="menu-text">Registration Fees</span>
           </a>
-        </li>
-
-       <!--  <li>
-          <a href="{{ route('admin.add.subject') }} ">
-            <i class="menu-icon fa fa-square"></i>
-            <span class="menu-text">Add Subject</span>
-          </a>
-        </li> -->
-
-        <!-- <li>
-          <a href="http://localhost:8000/student/upload-my-files">
-            <i class="menu-icon fa fa-print"></i>
-            <span class="menu-text">Upload Scanned Files</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="http://localhost:8000/student/admission-status">
-            <i class="menu-icon fa fa-edit"></i>
-            <span class="menu-text">Admission Status</span>
-          </a>
-        </li> -->
-                
+        </li>                
         
         <li>
             <a href="http://localhost:8000/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
