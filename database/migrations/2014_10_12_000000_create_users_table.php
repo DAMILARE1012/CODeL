@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('program');
             $table->string('phone');
             $table->string('count');
+            $table->string('signature')->nullable();
             $table->string('academic_session')->default($academicSession->session);
             $table->boolean('admission_accepted')->default(0);
             $table->boolean('admission_status')->default(0);

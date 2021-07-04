@@ -41,7 +41,7 @@
 
                <ul class="dropdown-menu animated flipInY">
                 <li>
-                  <a class="text-color" href="{{ route('home') }}">
+                  <a class="text-color" href="{{ route('user.dashboard') }}">
                     <span class="m-r-xs"><i class="fa fa-home"></i></span>
                     <span>Home</span>
                   </a>
@@ -73,40 +73,26 @@
       <ul class="app-menu">
         
         <li>
-          <a href="http://localhost:8000/home">
+          <a href="{{ route('user.dashboard') }} ">
             <i class="menu-icon fa fa-home"></i>
             <span class="menu-text">Home</span>
           </a>
         </li>
 
         <li>
-          <a href="http://localhost:8000/student/update-profile">
-            <i class="menu-icon fa fa-user"></i>
-            <span class="menu-text">Update Profile</span>
+          <a href="# ">
+            <i class="menu-icon fa fa-home"></i>
+            <span class="menu-text">Hand Book</span>
           </a>
         </li>
 
         <li>
-          <a href="http://localhost:8000/student/o-level-subjects">
-            <i class="menu-icon fa fa-file-photo-o"></i>
-            <span class="menu-text">Submit Result</span>
+          <a href="#">
+            <i class="menu-icon fa fa-home"></i>
+            <span class="menu-text">Fees Structure</span>
           </a>
         </li>
 
-        <li>
-          <a href="http://localhost:8000/student/upload-my-files">
-            <i class="menu-icon fa fa-print"></i>
-            <span class="menu-text">Upload Scanned Files</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="http://localhost:8000/student/admission-status">
-            <i class="menu-icon fa fa-edit"></i>
-            <span class="menu-text">Admission Status</span>
-          </a>
-        </li>
-                   
         <li>
           <a class="text-color" href="{{ route('logout') }}"
               onclick="event.preventDefault();

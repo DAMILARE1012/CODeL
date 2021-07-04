@@ -42,7 +42,7 @@
                                 <div align="center">
 
                                     <button type="submit" class="btn btn-success" onclick="return confirm('sure ?')">
-                                        Add
+                                        Update
                                     </button>
                                 </div>
 

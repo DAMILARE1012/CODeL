@@ -77,11 +77,15 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
 	Route::get('registration-fee-form/{regorder}', 'RegistrationFeeController@remitaRequestView')->name('registration.remita.request');
 	Route::get('registration-callback', 'RegistrationFeeController@callback')->name('acceptance.callback');
 	Route::get('registration-fee-history', 'RegistrationFeeController@paymentHistory')->name('registration.history');
+	//Accept Admission
+	Route::post('accept-admission', 'DashboardController@acceptAdmission')->name('accept.admission');
 	//Acceptance fee 
 	Route::get('acceptance-fee', 'AcceptanceFeeController@createOrder')->name('acceptance.order');
 	Route::get('acceptance-fee-form/{order}', 'AcceptanceFeeController@remitaRequestView')->name('remita.request');
 	Route::get('callback', 'AcceptanceFeeController@callback')->name('acceptance.callback');
 	Route::get('acceptance-fee-history', 'AcceptanceFeeController@paymentHistory')->name('acceptance.history');
+	//after acceptance fee
+	Route::get('student', 'DashboardController@studentindex')->name('student');
 });
 
 

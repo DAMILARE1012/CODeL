@@ -30,7 +30,7 @@
                                         <div class="row">
                                             <div class="col-md-2 col-sm-2">
                                                 <div class="avatar avatar-xl avatar-circle">
-                                                    <img src="{{ asset('images/credentials/passportz/'. $credential->passport) }}" alt="">
+                                                    <img src="{{ asset('images/credentials/passportz/'. $credential->passport) }}" alt="passport">
                                                 </div><!-- .avatar -->
 
                                             </div>
