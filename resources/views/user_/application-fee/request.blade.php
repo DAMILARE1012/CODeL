@@ -31,7 +31,7 @@
                                                     </header><!-- .widget-header -->
                                                     <hr class="widget-separator">
                                                     @php 
-                                                        $concatString = config('global.MERCHANTID') . config('global.SERVICETYPEID') . $regOrder->reference . $regOrder->amount . config('global.PATH') . config('global.APIKEY');
+                                                        $concatString = config('global.MERCHANTID') . config('global.SERVICETYPEID') . $appOrder->reference . $appOrder->amount . config('global.PATH') . config('global.APIKEY');
 
                                                         $hash = hash('sha512', $concatString);
                                                         
@@ -45,10 +45,10 @@
                                                             <input type="hidden" value="{{ config('global.MERCHANTID')}}" name="merchantId">
 
                                                             <input type="hidden" value="{{ config('global.SERVICETYPEID')}}" name="serviceTypeId">
-                                                            <input type="hidden" value="{{ $regOrder->amount }}" name="amt">
+                                                            <input type="hidden" value="{{ $appOrder->amount }}" name="amt">
                                                             <input type="hidden" value="{{ config('global.PATH') }}" name="responseurl">
                                                             <input type="hidden" value="{{ $hash }}" name="hash">
-                                                            <h1 class="text-success">Acceptance Fee: &#8358;{{ number_format($regOrder->amount,2) }}</h1>
+                                                            <h1 class="text-success">Acceptance Fee: &#8358;{{ number_format($appOrder->amount,2) }}</h1>
                                                             <p class="text-info">Note:<br>1. Remita charges may apply.<br> 2. You can only pay using your Master Card.</p>
                                                             <div class="form-group">
                                                                 <label for="select2-demo-2" class="col-sm-4 control-label">PAYMENT METHOD</label>
@@ -60,10 +60,10 @@
                                                                     </select>
                                                                 </div><!-- END column -->
                                                             </div><!-- .form-group -->
-                                                            <input type="hidden" value="{{ $regOrder->user->fname }} {{ $regOrder->user->mname }} {{ $regOrder->user->lname }}" name="payerName">
-                                                            <input type="hidden" value="{{ $regOrder->user->email }}" name="payerEmail">
-                                                            <input type="hidden" value="{{ $regOrder->user->phone }}" name="payerPhone">
-                                                            <input type="hidden" value="{{ $regOrder->reference }}" name="regOrderId">
+                                                            <input type="hidden" value="{{ $appOrder->user->fname }} {{ $appOrder->user->mname }} {{ $appOrder->user->lname }}" name="payerName">
+                                                            <input type="hidden" value="{{ $appOrder->user->email }}" name="payerEmail">
+                                                            <input type="hidden" value="{{ $appOrder->user->phone }}" name="payerPhone">
+                                                            <input type="hidden" value="{{ $appOrder->reference }}" name="appOrderId">
                                                             <input type="submit" name="submit" class="btn btn-success" value="Pay with Remita">
                                                             <img src="{{ asset('remita.png') }}" width="150" height="150">
                                                         </form>
@@ -83,7 +83,7 @@
                             </div>
 
 
-                            @if($regOrder)
+                            @if($appOrder)
                                 
                                 <div class="row">
                                   
@@ -113,22 +113,22 @@
                                                                     @php
                                                                         $count = 1;
                                                                     @endphp
-                                                                    @foreach($regOrders as $regOrder)
+                                                                    @foreach($appOrders as $appOrder)
                                                                     <tr>
                                                                         <td>{{ $count++ }}</td>
-                                                                        <td>{{ $regOrder->created_at->toDayDateTimeString() }}</td>
-                                                                        <td>&#8358;{{ number_format($regOrder->amount, 2) }}</td>
+                                                                        <td>{{ $appOrder->created_at->toDayDateTimeString() }}</td>
+                                                                        <td>&#8358;{{ number_format($appOrder->amount, 2) }}</td>
                                                                         <td>
-                                                                            @if($regOrder->rrr == NULL)
+                                                                            @if($appOrder->rrr == NULL)
                                                                                 no RRR generated
                                                                             @else
-                                                                                {{ $regOrder->rrr }}
+                                                                                {{ $appOrder->rrr }}
                                                                             @endif
                                                                         </td>
                                                                         <td>
-                                                                            @if($regOrder->status == 1)
+                                                                            @if($appOrder->status == 1)
                                                                                 <span class="text-success">transaction successful</span>
-                                                                            @elseif($regOrder->status==2)
+                                                                            @elseif($appOrder->status==2)
                                                                                 <span class="text-danger">transaction failed</span>
                                                                             @else
                                                                                 <span class="text-danger">transaction pending</span>

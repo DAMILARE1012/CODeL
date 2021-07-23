@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//front page Start
 Route::get('/', 'pagescontroller@home')->name('home');
 Route::get('about', 'pagescontroller@about')->name('about');
 Route::get('objectives', 'pagescontroller@objectives')->name('objectives');
@@ -20,7 +20,7 @@ Route::get('programmes', 'pagescontroller@programmes')->name('programmes');
 Route::get('contact', 'pagescontroller@contact')->name('contact_us');
 Route::get('models', 'pagescontroller@models')->name('models');
 Route::get('faqs', 'pagescontroller@faqs')->name('faqs');
-
+//front page ends
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -39,14 +39,30 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 	Route::get('subject', 'DashboardController@subject')->name('subject');
 	Route::post('store-subject', 'DashboardController@storesubject')->name('store.subject');
 	Route::get('delete-subject/{id}', 'DashboardController@deletesubject')->name('delete.subject');
-	//registered
+	//REGISTRATION
+	// All registred
 	Route::get('registered/sessions', 'RegisterController@registrations')->name('registrations');
 	Route::get('registered/session/{id} ', 'RegisterController@registrationsbySessions')->name('registrationsbySessions');
 	Route::get('registration/{id}', 'RegisterController@singleRegistration')->name('single.registration');
+	//All granted admission
+	Route::get('granted-registered/sessions', 'RegisterController@Adregistrations')->name('admit-registrations');
+	Route::get('granted-registered/session/{id} ', 'RegisterController@AdregistrationsbySessions')->name('admit-registrationsbySessions');
+	Route::get('granted-registration/{id}', 'RegisterController@AdsingleRegistration')->name('admit-single.registration');
+	//All Accepted admission
+	Route::get('accept-registered/sessions', 'RegisterController@Acregistrations')->name('accept-registrations');
+	Route::get('accept-registered/session/{id} ', 'RegisterController@AcregistrationsbySessions')->name('accept-registrationsbySessions');
+	Route::get('accept-registration/{id}', 'RegisterController@AcsingleRegistration')->name('accept-single.registration');
+	//All Declined admission
+	Route::get('decline-registered/sessions', 'RegisterController@Deregistrations')->name('decline-registrations');
+	Route::get('decline-registered/session/{id} ', 'RegisterController@DeregistrationsbySessions')->name('decline-registrationsbySessions');
+	Route::get('decline-registration/{id}', 'RegisterController@DesingleRegistration')->name('decline-single.registration');
+
 	//Offering Admission 
 	Route::get('/offer-addmission/{id}', 'AdmissionController@offerAdmission')->name('offer.admission');
 	//Revocking Admission
 	Route::get('/decline-addmission/{id}', 'AdmissionController@declineAdmission')->name('decline.admission');
+	//Offering Admission 
+	Route::get('/reset-addmission/{id}', 'AdmissionController@resetAdmission')->name('reset.admission');
 
 	//Academic sessions 
 	Route::get('sessions', 'SessionController@index')->name('sessions');
@@ -72,13 +88,18 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
 	Route::post('submit-result', 'RegistrationController@submitResults')->name('submit.results');
 	Route::get('upload-my-files', 'RegistrationController@uploadFiles')->name('upload.files');
 	Route::post('upload-my-files', 'RegistrationController@submitFiles')->name('submit.files');
-	//Registration fee 
-	Route::get('registration-fee', 'RegistrationFeeController@createOrder')->name('registration.order');
-	Route::get('registration-fee-form/{regorder}', 'RegistrationFeeController@remitaRequestView')->name('registration.remita.request');
-	Route::get('registration-callback', 'RegistrationFeeController@callback')->name('acceptance.callback');
-	Route::get('registration-fee-history', 'RegistrationFeeController@paymentHistory')->name('registration.history');
+	
+	//Application fee 
+	Route::get('application-fee', 'ApplicationFeeController@createOrder')->name('application.order');
+	Route::get('application-fee-form/{regorder}', 'ApplicationFeeController@remitaRequestView')->name('application.remita.request');
+	Route::get('application-callback', 'ApplicationFeeController@callback')->name('application.callback');
+	Route::get('application-fee-history', 'ApplicationFeeController@paymentHistory')->name('application.history');
+
 	//Accept Admission
 	Route::post('accept-admission', 'DashboardController@acceptAdmission')->name('accept.admission');
+	//Reject Admission
+	Route::get('/admission/rejected/{id}', 'DashboardController@admissionreject')->name('admissionRejected');
+	
 	//Acceptance fee 
 	Route::get('acceptance-fee', 'AcceptanceFeeController@createOrder')->name('acceptance.order');
 	Route::get('acceptance-fee-form/{order}', 'AcceptanceFeeController@remitaRequestView')->name('remita.request');
@@ -95,6 +116,4 @@ Route::group(['as'=>'manager.','prefix' => 'manager','namespace'=>'Manager','mid
 		Route::get('registered/sessions', 'DashboardController@registrations')->name('registrations');
 		Route::get('registered/session/{id} ', 'DashboardController@registrationsbySessions')->name('registrationsbySessions');
 		Route::get('fees-list ', 'DashboardController@fees_list')->name('fees.list');
-		
-
 });

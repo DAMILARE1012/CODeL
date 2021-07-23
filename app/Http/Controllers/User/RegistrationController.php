@@ -100,8 +100,10 @@ class RegistrationController extends Controller
         }
     }
 
-    public function submitFiles(Request $request )
+    public function submitFiles(Request $request)
     {
+        $academicSession = User::where('id', Auth::id())->first();
+
         $this->validate($request, [
             'passport' => 'required|mimes:jpeg,png,jpg|max:2048',
             'olevel1' => 'required|mimes:pdf',
@@ -109,6 +111,19 @@ class RegistrationController extends Controller
             'other' => 'mimes:pdf',
             'birth_certificate' => 'required|mimes:pdf',
         ]);
+
+            if (Auth::id() < 10) 
+            {
+                $registration_id = 'CODeL'.'/'.'00'.Auth::id().'/'. $academicSession->academic_session;
+            }
+            elseif (Auth::id() < 100) 
+            {
+                $registration_id = 'CODeL'.'/'.'0'.Auth::id().'/'. $academicSession->academic_session;
+            }
+            else
+            {
+                $registration_id = 'CODeL'.'/'.Auth::id().'/'. $academicSession->academic_session; 
+            }
             
             $olevel1 = $request->olevel1;
             $olevel1_name = Auth::id() . time() . $olevel1->getClientOriginalName();
@@ -152,6 +167,7 @@ class RegistrationController extends Controller
             }
 
             DB::table('users')->where('id', Auth::id())->update(['count' => 3]); 
+            DB::table('users')->where('id', Auth::id())->update(['registration_id' => $registration_id]); 
             return redirect()->route('user.dashboard');
             }  
 

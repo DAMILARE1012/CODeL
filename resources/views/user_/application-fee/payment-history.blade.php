@@ -17,7 +17,7 @@
                             </div>
                             @endif
 
-                            @if($orders)
+                            @if($appOrders)
     
                             <div class="row">
                                 <div class="wrap">
@@ -44,7 +44,7 @@
                                                                 @php
                                                                     $count = 1;
                                                                 @endphp
-                                                                @foreach($regOrders as $order)
+                                                                @foreach($appOrders as $order)
                                                                 <tr>
                                                                     <td>{{ $count++ }}</td>
                                                                     <td>{{ $order->created_at->diffForHumans() }}</td>

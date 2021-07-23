@@ -18,7 +18,7 @@
                             </div>
                             @endif
                             @error('subjects')
-								<div class="alert alert-danger">{{ $message }}</div>
+								<div class="alert alert-danger">You must Select at Least 7 Subjects.</div>
 							@enderror
 							@if (session('error'))
 								<div class="alert alert-danger">{{ session('error') }}</div>

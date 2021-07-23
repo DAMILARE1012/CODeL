@@ -1,5 +1,5 @@
 <li>
-          <h5 class="page-title hidden-menubar-top hidden-float">Admin Dashboard</h5>
+          <h5 class="page-title hidden-menubar-top hidden-float">Dashboard {{ Auth::user()->name }}</h5>
         </li>
       </ul>
 
@@ -20,8 +20,7 @@
 <!--========== END app navbar -->
 
 <!-- APP ASIDE ==========-->
-<!-- APP MAIN ==========-->
-<aside id="menubar" class="menubar light">
+<!-- APP MAIN ==========--><aside id="menubar" class="menubar light">
   <div class="app-user">
     <div class="media">
       <div class="media-left">
@@ -36,15 +35,15 @@
           <ul>
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropdown-toggle usertitle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <small>My Profile</small>
+                <small>Profile</small>
                 <span class="caret"></span>
               </a>
 
                <ul class="dropdown-menu animated flipInY">
                 <li>
-                  <a class="text-color" href="{{ route('home') }}">
+                  <a class="text-color" href="{{ route('user.dashboard') }}">
                     <span class="m-r-xs"><i class="fa fa-home"></i></span>
-                    <span>Home Site</span>
+                    <span>Home</span>
                   </a>
                 </li>
                 
@@ -74,74 +73,66 @@
       <ul class="app-menu">
         
         <li>
-          <a href="{{ route('admin.dashboard') }} ">
+          <a href="{{ route('user.dashboard') }} ">
             <i class="menu-icon fa fa-home"></i>
             <span class="menu-text">Home</span>
           </a>
         </li>
 
-        <li class="menu-item-has-children dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i></i>Registrations</a>
-            <ul class="sub-menu children dropdown-menu">
-               <li>
-                  <a href="{{route('admin.registrations') }} ">
-                    <i class="menu-icon fa fa-user"></i>
-                    <span class="menu-text">Registered Users</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{route('admin.admit-registrations') }}">
-                    <i class="menu-icon fa fa-user"></i>
-                    <span class="menu-text">Admmited Students</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{route('admin.accept-registrations') }}">
-                    <i class="menu-icon fa fa-user"></i>
-                    <span class="menu-text">Accepted Admission</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{route('admin.decline-registrations') }}">
-                    <i class="menu-icon fa fa-user"></i>
-                    <span class="menu-text">declined Admission</span>
-                  </a>
-                </li>
-            </ul>
-        </li>
-
         <li>
-          <a href="{{route('admin.sessions') }} ">
-            <i class="menu-icon fa fa-user"></i>
-            <span class="menu-text">Sessions</span>
+          <a href="# ">
+            <i class="menu-icon fa fa-home"></i>
+            <span class="menu-text">My Profile</span>
           </a>
         </li>
 
         <li>
-          <a href="{{route('admin.subject') }} ">
-            <i class="menu-icon fa fa-square"></i>
-            <span class="menu-text">Subject</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="{{route('admin.registration_fees') }} ">
-            <i class="menu-icon glyphicon glyphicon-list-alt"></i>
-            <span class="menu-text">Registration Fees</span>
-          </a>
-        </li>  
-
-                      
-        
-        <li>
-            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                      </form>
-              <i class="menu-icon fa fa-power-off"></i>
-              <span class="menu-text">Logout</span>
+            <a href="#">
+              <i class="menu-icon glyphicon glyphicon-list-alt"></i>
+              <span class="menu-text">Bio-data Form</span>
             </a>
           </li>
+
+          <li>
+            <a href="#">
+              <i class="menu-icon glyphicon glyphicon-list-alt"></i>
+              <span class="menu-text">Guarantor Form</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="menu-icon glyphicon glyphicon-list-alt"></i>
+              <span class="menu-text">Course Registration</span>
+            </a>
+          </li>
+          
+        <li>
+          <a href="# ">
+            <i class="menu-icon fa fa-home"></i>
+            <span class="menu-text">Payment History</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="menu-icon fa fa-home"></i>
+            <span class="menu-text">Fees Structure</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="text-color" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+              </form>
+
+            <span class="m-r-xs"><i class="fa fa-power-off"></i></span>
+            <span>Logout</span>
+          </a>
+        </li>
       </ul><!-- .app-menu -->
     </div><!-- .menubar-scroll-inner -->
   </div><!-- .menubar-scroll -->

@@ -50,6 +50,8 @@ class AcceptanceFeeController extends Controller
             $order->rrr = request()->RRR;
             $order->save();
 
+            DB::table('users')->where('id', Auth::id())->update(['admission_accepted' => 1.5]); 
+
             return redirect()->route('user.remita.request', ['order' => $order->id]);
         } 
     }

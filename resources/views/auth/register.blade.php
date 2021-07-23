@@ -25,7 +25,7 @@
                                         <div class="col-xs-12 col-sm-4">
                                             <div class="form-group mb-10">
                                                 <input placeholder="First Name" id="reservation_name" name="fname"
-                                                    class="form-control" aria-required="true" type="text" required
+                                                    class="form-control" value="{{ old('fname') }}" aria-required="true" type="text" required
                                                     autofocus>
 
                                                 @if ($errors->has('fname'))
@@ -38,12 +38,12 @@
                                         <div class="col-xs-12 col-sm-4">
                                             <div class="form-group mb-10">
                                                 <input placeholder="Middle Name" id="reservation_name" name="mname"
-                                                    class="form-control" aria-required="true" type="text" required
+                                                    class="form-control" value="{{ old('mname') }}" aria-required="true" type="text" required
                                                     autofocus>
 
-                                                @if ($errors->has('fname'))
+                                                @if ($errors->has('mname'))
                                                     <span class="help-block">
-                                                        <strong>{{ $errors->first('fname') }}</strong>
+                                                        <strong>{{ $errors->first('mname') }}</strong>
                                                     </span>
                                                 @endif
                                             </div>
@@ -51,7 +51,7 @@
                                         <div class="col-xs-12 col-sm-4">
                                             <div class="form-group mb-10">
                                                 <input placeholder="Last Name" id="lastName" name="lname"
-                                                    class="form-control" aria-required="true" type="text" required
+                                                    class="form-control" value="{{ old('lname') }}" aria-required="true" type="text" required
                                                     autofocus>
                                                 @if ($errors->has('lname'))
                                                     <span class="help-block">
@@ -68,7 +68,7 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="form-group mb-30">
-                                            <input type="date" name="dob" id="dob" class="form-control" required="">
+                                            <input type="date" value="{{ old('dob') }}" name="dob" id="dob" class="form-control" required="">
 
                                             @if ($errors->has('dob'))
                                                 <span class="help-block">
@@ -96,7 +96,7 @@
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="form-group mb-30">
                                             <input placeholder="Enter A Valid Email" id="reservation_email" name="email"
-                                                class="form-control" required="" aria-required="true" type="email">
+                                                class="form-control" value="{{ old('email') }}" required="" aria-required="true" type="email">
 
                                             @if ($errors->has('email'))
                                                 <span class="help-block">
@@ -109,7 +109,7 @@
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="form-group mb-30">
                                             <input placeholder="Phone Number" id="reservation_email" name="phone"
-                                                class="form-control" required="" aria-required="true" type="text">
+                                                class="form-control" value="{{ old('phone') }}" required="" aria-required="true" type="text">
 
                                             @if ($errors->has('phone'))
                                                 <span class="help-block">
@@ -192,7 +192,7 @@
 
                             <div class="col-sm-12">
                                 <div class="form-group mt-15 text-center">
-                                    <p>Already have an account? <a href="{{ route("login") }}" class="text-theme-colored2 text-underline">Sign
+                                    <p>Already have an account? <a href="{{ route('login') }}" class="text-theme-colored2 text-underline">Sign
                                             In Here</a> </p>
                                 </div>
                             </div>

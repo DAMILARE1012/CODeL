@@ -6,16 +6,7 @@
         <section class="app-content">
             <div class="row">
                 <div class="col-md-12">
-                    @if(session('info'))
-                    <div class="alert alert-success">
-                    {{ session('info') }}
-                    </div>
-                    @endif
-                    @if(Session::has('status'))
-                    <div class="alert alert-info">
-                        <p><b>{{ Session::get('status') }}</b></p>
-                    </div>
-                    @endif
+                    
                     <div class="widget">
                         <div class="nav-tabs-vertical clearfix">
                             <ul class="nav nav-tabs" role="tablist">

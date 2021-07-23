@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RegOrder extends Model
+class AppOrder extends Model
 {
     public function user()
     {

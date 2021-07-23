@@ -67,6 +67,7 @@
                                                 @else
                                                     <a href="{{ route('admin.offer.admission', ['id' => $user->id]) }}" class="btn btn-primary" onClick="return confirm('Are you sure you want to offer this applicant admission?')">Award Admission</a>
                                                 @endif
+                                                <a href="{{ route('admin.reset.admission', ['id' => $user->id]) }}" class="btn btn-danger" onClick="return confirm('Are you sure you want to revoke this admission?')">Reset Admission</a>
                                             </div>
                                         </div>
                                     <!-- </p> -->

@@ -8,10 +8,8 @@
                 <div class="col-md-12">
                     <div class="widget">
                         <header class="widget-header">
-                            <h4 class="widget-title">{{$reg_section->academic_session}}</h4>
+                            <h4 class="widget-title">Accepted {{$reg_section->academic_session}} Students</h4>
                             <table></table>
-                            <a href="#">Given Admission</a>| <a href="#">Accepted Admission</a>| <a href="#">Declined Admission</a>
-
                         </header><!-- .widget-header -->
                         <hr class="widget-separator">
 
@@ -22,7 +20,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Course</th>
-                                    <th>Email</th>
+                                    <th></th>
                                     <th>Country</th>
                                     <th>State</th>
                                     <th>Registration Date</th>
@@ -32,7 +30,7 @@
                               <tbody>
                                   @foreach ($registrations as $registration)
                                      <tr>
-                                <td><a href="{{ route('admin.single.registration', ['id' => $registration->id]) }}">{{ $registration->fname }} {{ $registration->mname }} {{ $registration->lname }}</a></td>
+                                <td><a href="{{ route('admin.accept-single.registration', ['id' => $registration->id]) }}">{{ $registration->fname }} {{ $registration->mname }} {{ $registration->lname }}</a></td>
                                 <td>{{ $registration->program }}</td>
                                 <td class="text-lowercase">{{ $registration->email }}</td>
                                 <td>{{ $registration->country }}</td>

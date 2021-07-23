@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegOrdersTable extends Migration
+class CreateAppOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRegOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('reg_orders', function (Blueprint $table) {
+        Schema::create('app_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('payment_list_id');
@@ -31,6 +31,6 @@ class CreateRegOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reg_orders');
+        Schema::dropIfExists('app_orders');
     }
 }

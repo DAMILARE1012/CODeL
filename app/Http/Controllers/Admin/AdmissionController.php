@@ -32,4 +32,15 @@ class AdmissionController extends Controller
         Session::flash('info', 'Applicant admission has been successfully revoked');
         return redirect()->back();
     }
+
+    public function resetAdmission($id)
+    {
+        $user = User::find($id);
+        $user->admission_status = 1;
+        $user->admission_accepted = 0;
+        $user->save();
+
+        Session::flash('info', 'Applicant admission has been successfully rested');
+        return redirect()->back();
+    }
 }
